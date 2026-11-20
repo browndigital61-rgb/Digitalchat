@@ -1,805 +1,1475 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="sw" class="dark">
 <head>
-    <!-- Vercel Speed Insights -->
-<script>
-  window.si = window.si || function () {
-    (window.siq = window.siq || []).push(arguments);
-  };
-</script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swahili Digital - Pata Fursa Mtandaoni</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Swahili Works - Pata Fursa Mtandaoni</title>
+    <!-- Vercel Speed Insights -->
+    <script>
+      window.si = window.si || function () {
+        (window.siq = window.siq || []).push(arguments);
+      };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <!-- Vercel Web Analytics -->
+    <script>
+      window.va = window.va || function () {
+        (window.vaq = window.vaq || []).push(arguments);
+      };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            dark: '#1e110c',     /* Deep rich warm brown background */
-                            card: '#2c1a14',     /* Slightly lighter brown card */
-                            accent: '#3d251d',   /* Accent brown highlight */
-                            border: '#4a2e24',   /* Subtle brown border */
-                            primary: '#8b4513',  /* Rich saddle brown */
-                            gold: '#d97706',     /* Gold/Amber highlight */
-                            neonBlue: '#3b82f6',
-                            neonOrange: '#f97316'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        darkBg: '#18120B',
+                        cardBg: '#231A12',
+                        cardHover: '#2E2218',
+                        accentGold: '#D4AF37',
+                        accentOrange: '#E25822',
+                        borderCol: '#3D2E21'
                     }
                 }
             }
         }
     </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
         body {
-            background-color: #1a0e0a;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(139, 69, 19, 0.25) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(61, 37, 29, 0.4) 0px, transparent 50%);
-            color: #f3f4f6;
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #18120B;
+            background-image:
+                radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.06), transparent 40%),
+                radial-gradient(circle at 85% 90%, rgba(226, 88, 34, 0.05), transparent 45%);
+            color: #F3F4F6;
         }
-
-        /* Glassmorphism effects */
-        .glass-card {
-            background: rgba(44, 26, 20, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(139, 69, 19, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
-
-        .glass-nav {
-            background: rgba(30, 17, 12, 0.92);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(139, 69, 19, 0.4);
+        .bg-cardBg {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(212, 175, 55, 0.06) inset;
         }
-
-        /* Live payouts auto marquee ticker animation */
-        @keyframes marquee {
-            0% { transform: translateY(0%); }
-            100% { transform: translateY(-50%); }
-        }
-
-        .animate-marquee {
-            animation: marquee 16s linear infinite;
-        }
-
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e110c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a2e24;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #8b4513;
-        }
-
-        /* Pulse glowing dot */
-        .pulse-dot {
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulse-green 2s infinite;
-        }
-
-        @keyframes pulse-green {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #18120B; }
+        ::-webkit-scrollbar-thumb { background: #3D2E21; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
     </style>
 </head>
-<body class="pb-24 antialiased">
+<body class="bg-darkBg min-h-screen text-gray-100 flex flex-col antialiased relative">
 
-    <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-40 glass-nav px-4 py-3 shadow-lg">
-        <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-700 via-yellow-600 to-amber-500 flex items-center justify-center text-white font-black text-xl shadow-md border border-amber-400/30">
-                    <i class="fa-solid fa-comments"></i>
+    <!-- FLOATING WHATSAPP SUPPORT BUTTON -->
+    <a href="https://wa.me/255799223490?text=Habari%20Swahili%20Digital,%20naomba%20msaada" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3.5 rounded-full shadow-2xl ring-4 ring-green-500/20 flex items-center gap-2 border border-green-400/40 transition duration-200 hover:scale-105">
+      <i class="fa-brands fa-whatsapp text-xl"></i>
+      <span class="text-xs font-bold">WhatsApp</span>
+    </a>
+
+    <!-- AUTH CONTAINER (LOGIN / REGISTER) - HIDDEN BY DEFAULT NOW -->
+    <div id="auth-container" class="fixed inset-0 z-40 bg-[#18120B]/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto hidden">
+        <div class="bg-cardBg border border-green-600/40 rounded-2xl w-full max-w-md p-8 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] relative">
+            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-28 h-28 rounded-2xl bg-gradient-to-br from-[#231A12] to-[#120D08] mb-3 border border-accentGold/50 shadow-2xl overflow-hidden p-2 relative">
+                    <div class="absolute inset-0 bg-accentGold/5 backdrop-blur-[1px]"></div>
+                    <div class="relative z-10 flex items-center justify-center w-full h-full rounded-xl bg-black/40 border border-accentGold/30">
+                        <span class="text-3xl font-black tracking-wider text-accentGold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"><span class="text-accentGold">𝙲𝙷𝙰𝚃</span></span>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight text-white">𝗦𝗪𝗔𝗛𝗜𝗟𝗜 𝗗𝗜𝗚𝗜𝗧𝗔𝗟</h1>
+                <p class="text-xs text-accentGold mt-1">Teach Swahili • Earn Rewards💰</p>
+            </div>
+
+            <!-- TABS -->
+            <div class="flex border-b border-amber-600/40 mb-6">
+                <button onclick="switchAuthTab('login')" id="tab-login-btn" class="flex-1 pb-3 text-sm font-semibold text-accentGold border-b-2 border-amber-600/40 transition-all">Login</button>
+                <button onclick="switchAuthTab('register')" id="tab-register-btn" class="flex-1 pb-3 text-sm font-medium text-gray-400 hover:text-white transition-all">Create Account</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Username or Email</label>
+                    <input type="text" id="login-user" required placeholder="Username" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
-                        SWAHILI <span class="text-amber-500 font-black">DIGITAL TZ</span>
-                    </h1>
-                    <p class="text-[10px] text-amber-200/70 font-medium -mt-1">Teach Swahili • Earn Rewards</p>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Password</label>
+                    <input type="password" id="login-pass" required placeholder="*****" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
                 </div>
-            </div>
+                <div class="flex items-center justify-between text-xs text-gray-400">
+                    <label class="flex items-center gap-2"><input type="checkbox" class="rounded bg-[#18120B] border-amber-600/40 text-accentGold"> Remember password</label>
+                    <a href="https://wa.me/255799223490?text=Forgot%20password%20assistance" target="_blank" class="text-accentGold hover:underline">Forgot Password?</a>
+                </div>
+                <button type="submit" class="w-full bg-accentGold text-darkBg font-bold py-3 rounded-lg hover:bg-opacity-90 transition-all text-sm shadow-lg shadow-accentGold/15">
+                    SIGN IN →
+                </button>
+                <div class="text-center text-xs text-gray-300 pt-3">
+                    Don't have an account? 
+                    <button type="button" onclick="switchAuthTab('register')" class="text-accentGold font-semibold hover:underline">Create Account</button>
+                </div>
+            </form>
 
-            <button id="installAppBtn" onclick="installAppPrompt()" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border border-indigo-400/30">
-                <span>DOWNLOAD APP</span>
-                <i class="fa-solid fa-download text-xs"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- MAIN CONTAINER -->
-    <main class="max-w-4xl mx-auto px-4 pt-5 space-y-6">
-
-        <!-- LIVE CLOCK & DATE BAR -->
-        <div class="bg-amber-950/60 border border-amber-800/50 rounded-2xl p-3.5 shadow-md flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-                <i class="fa-regular fa-clock text-amber-400 text-lg"></i>
+            <!-- REGISTER FORM -->
+            <form id="register-form" onsubmit="handleRegister(event)" class="space-y-3 hidden">
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-xs font-bold text-yellow-300">Create Your Account</span>
+                    <a href="https://wa.me/255799223490?text=Habari,%20nimekwama%20kwenye%20usajili" target="_blank" class="text-[11px] bg-green-500/10 text-green-400 border border-amber-600/40 px-2 py-0.5 rounded-full font-semibold flex items-center gap-1 hover:bg-green-500/20">
+                        <i class="fa-brands fa-whatsapp text-xs"></i> WhatsApp Support
+                    </a>
+                </div>
                 <div>
-                    <div id="liveDayDate" class="text-xs sm:text-sm font-extrabold text-white capitalize">Inapakia tarehe...</div>
-                    <div class="text-[10px] text-amber-300/80 font-medium">Muda wa Live Mtandaoni</div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Full Name</label>
+                    <input type="text" id="reg-name" required placeholder="Majina kamili" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
                 </div>
-            </div>
-            <div id="liveTime" class="text-xs sm:text-sm font-black bg-brand-dark px-3 py-1.5 rounded-xl border border-amber-900/60 text-emerald-400 tracking-wider">
-                00:00:00
-            </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Username</label>
+                    <input type="text" id="reg-user" required placeholder="Nickname" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Email</label>
+                    <input type="email" id="reg-email" required placeholder="name@gmail.com" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Phone Number</label>
+                    <input type="tel" id="reg-phone" required placeholder="07XXXXXXXX" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Password</label>
+                    <input type="password" id="reg-pass" required placeholder="*****" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Confirm Password</label>
+                    <input type="password" id="reg-pass-confirm" required placeholder="*****" class="w-full bg-[#18120B] border border-amber-600/40 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                </div>
+                <div class="pt-1">
+                    <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer select-none">
+                        <input type="checkbox" id="reg-privacy-check" onchange="toggleRegisterButton()" class="rounded bg-[#18120B] border-amber-600/40 text-accentGold focus:ring-0 cursor-pointer">
+                        <span>I agree with the <span class="text-accentGold underline">Privacy Policy</span></span>
+                    </label>
+                </div>
+                <button type="submit" id="reg-submit-btn" disabled class="w-full bg-accentGold text-darkBg font-bold py-2.5 rounded-lg transition-all text-sm shadow-lg mt-2 opacity-50 cursor-not-allowed">
+                    Create Account
+                </button>
+            </form>
         </div>
+    </div>
 
-        <!-- BIG REGISTRATION BANNER BUTTON -->
-        <div class="transform transition hover:scale-[1.01] active:scale-[0.99]">
-            <button onclick="triggerRegisterRedirect()" class="w-full bg-gradient-to-r from-purple-700 via-indigo-700 to-purple-800 hover:from-purple-600 hover:to-indigo-600 text-white font-extrabold text-base sm:text-lg py-4 px-6 rounded-2xl shadow-2xl border border-purple-400/40 tracking-wider flex items-center justify-center gap-3 group">
-                <i class="fa-solid fa-hand-pointer text-yellow-400 text-xl animate-bounce"></i>
-                <span>GUSA HAPA KUJISAJILI</span>
-                <i class="fa-solid fa-chevron-right text-purple-300 group-hover:translate-x-1 transition-transform"></i>
-            </button>
-        </div>
-
-        <!-- DASHBOARD STATS GRID -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+    <!-- PAYMENT ACTIVATION SCREEN -->
+    <div id="payment-page" class="fixed inset-0 z-40 bg-[#18120B]/95 backdrop-blur-md flex flex-col items-center justify-start p-4 overflow-y-auto hidden">
+        <div class="w-full max-w-2xl bg-cardBg border border-borderCol rounded-2xl p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] space-y-5 my-auto">
             
-            <!-- NET PROFIT CARD -->
-            <div class="glass-card rounded-2xl p-4 relative overflow-hidden border-l-4 border-l-emerald-500 flex flex-col justify-between">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">NET PROFIT</span>
-                    <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                        <i class="fa-solid fa-chart-line text-sm"></i>
-                    </div>
+            <div class="border-b border-amber-600/40 pb-4 text-center">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accentGold/10 text-accentGold mb-2 font-bold text-xl border border-accentGold/20 shadow-lg overflow-hidden p-0.5">
+                    <span class="font-black text-white">S<span class="text-accentGold">W</span></span>
                 </div>
-                <div>
-                    <div class="text-2xl font-black text-white tracking-tight">TZS <span id="netProfitVal">0</span></div>
-                    <p class="text-[10px] text-gray-400 mt-1">Faida halisi iliyotengenezwa</p>
+                <h2 class="text-2xl font-bold text-white tracking-wide">ＳＷＡＨＩＬＩ ＤＩＧＩＴＡＬ</h2>
+                <p class="text-xs text-green-400 font-mono mt-0.5">💳 PAYMENT METHOD</p>
+            </div>
+
+            <!-- LINDA PESA ZAKO CARD -->
+            <div class="bg-[#18120B] border border-green-600/30 rounded-xl p-4 flex items-center justify-between shadow-inner">
+                <div class="flex items-center gap-3">
+                    <span class="text-xl">🛡️</span>
+                    <div>
+                        <div class="text-sm font-bold text-white">Linda Pesa Zako</div>
+                        <div class="text-[11px] text-red-400">
+                          ⚠️Lipia 15,000 kupitia mfumo huu pekee. Malipo nje ya mfumo huu ni batili na hayatakubaliwa.         
+                          {ACTIVATE YOUR ACCOUNT TO START WORK TODAY🎉}.</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- BALANCE CARD -->
-            <div class="glass-card rounded-2xl p-4 relative overflow-hidden border-l-4 border-l-blue-500 flex flex-col justify-between">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-blue-400">BALANCE</span>
-                    <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center">
-                        <i class="fa-solid fa-wallet text-sm"></i>
+            <!-- PAYMENT GUIDES (6 NETWORKS) -->
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">NJIA ZA MALIPO / USSD MENU</h3>
+
+                <!-- Vodacom M-Pesa -->
+                <div class="border border-amber-600/40 rounded-xl bg-[#18120B] overflow-hidden">
+                    <button onclick="toggleAccordion('voda-guide')" class="w-full p-4 text-left flex justify-between items-center hover:bg-cardHover transition">
+                        <span class="text-sm font-bold text-white">Vodacom M-Pesa</span>
+                        <span class="text-xs text-accentGold">𝐌𝐄𝐍𝐔 &darr;</span>
+                    </button>
+                    <div id="voda-guide" class="p-4 border-t border-borderCol bg-cardBg space-y-2 text-xs hidden">
+                        <ol class="list-decimal list-inside space-y-1.5 text-gray-300">
+                            <li>Piga <b>*150*00#</b> kwenye simu yako.</li>
+                            <li>Chagua <b>4 - Lipa kwa M-PESA</b>.</li>
+                            <li>Chagua <b>4 - Lipa kwa Simu</b>.</li>
+                            <li>Weka LIPA NAMBA: <b class="text-accentGold text-sm">358796388</b></li>
+                            <li>Weka kiasi: <b>15,000 TZS</b></li>
+                            <li>Hakikisha majina yanakuja: <b class="text-white">DIGITAL TECH</b></li>
+                            <li>Weka PIN kukamilisha.</li>
+                        </ol>
                     </div>
                 </div>
-                <div>
-                    <div class="text-2xl font-black text-white tracking-tight">TZS <span id="balanceVal">0</span></div>
-                    <button onclick="openWithdrawModal()" class="mt-3 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2 px-3 rounded-xl transition duration-200 shadow-md flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                        <span>Toa Pesa</span>
+
+                <!-- Mixx by Yas (Tigo) -->
+                <div class="border border-amber-600/40 rounded-xl bg-[#18120B] overflow-hidden">
+                    <button onclick="toggleAccordion('tigo-guide')" class="w-full p-4 text-left flex justify-between items-center hover:bg-cardHover transition">
+                        <span class="text-sm font-bold text-white">Mixx by Yas (Tigo Pesa)</span>
+                        <span class="text-xs text-accentGold">𝐌𝐄𝐍𝐔 &darr;</span>
+                    </button>
+                    <div id="tigo-guide" class="p-4 border-t border-borderCol bg-cardBg space-y-2 text-xs hidden">
+                        <ol class="list-decimal list-inside space-y-1.5 text-gray-300">
+                            <li>Piga <b>*150*01#</b> kwenye simu yako.</li>
+                            <li>Chagua <b>5 - Lipa kwa Simu</b>.</li>
+                            <li>Chagua <b>3 - Kwenda Mtandao Mwengine</b>.</li>
+                            <li>Weka Lipa Namba ya Vodacom: <b class="text-accentGold text-sm">358796388</b></li>
+                            <li>Weka kiasi: <b>15,000 TZS</b>.</li>
+                            <li>Hakikisha majina yanakuja: <b class="text-white">DIGITAL TECH</b>.</li>
+                            <li>Weka PIN kukamilisha.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Airtel Money -->
+                <div class="border border-amber-600/40 rounded-xl bg-[#18120B] overflow-hidden">
+                    <button onclick="toggleAccordion('airtel-guide')" class="w-full p-4 text-left flex justify-between items-center hover:bg-cardHover transition">
+                        <span class="text-sm font-bold text-white">Airtel Money</span>
+                        <span class="text-xs text-accentGold">𝐌𝐄𝐍𝐔 &darr;</span>
+                    </button>
+                    <div id="airtel-guide" class="p-4 border-t border-borderCol bg-cardBg space-y-2 text-xs hidden">
+                        <ol class="list-decimal list-inside space-y-1.5 text-gray-300">
+                            <li>Piga <b>*150*60#</b> kwenye simu yako.</li>
+                            <li>Chagua <b>5 - Lipa kwa Simu</b>.</li>
+                            <li>Chagua <b>2 - Kwenda Vodacom M-Pesa</b>.</li>
+                            <li>Weka Lipa Namba: <b class="text-accentGold text-sm">358796388</b></li>
+                            <li>Weka kiasi: <b>15,000 TZS</b>.</li>
+                            <li>Hakikisha majina yanakuja: <b class="text-white">DIGITAL TECH</b>.</li>
+                            <li>Weka PIN kukamilisha.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- HaloPesa -->
+                <div class="border border-amber-600/40 rounded-xl bg-[#18120B] overflow-hidden">
+                    <button onclick="toggleAccordion('halo-guide')" class="w-full p-4 text-left flex justify-between items-center hover:bg-cardHover transition">
+                        <span class="text-sm font-bold text-white">HaloPesa</span>
+                        <span class="text-xs text-accentGold">𝐌𝐄𝐍𝐔 &darr;</span>
+                    </button>
+                    <div id="halo-guide" class="p-4 border-t border-borderCol bg-cardBg space-y-2 text-xs hidden">
+                        <ol class="list-decimal list-inside space-y-1.5 text-gray-300">
+                            <li>Piga <b>*150*88#</b> kwenye simu yako.</li>
+                            <li>Chagua <b>4 - Lipa Biashara</b>.</li>
+                            <li>Chagua <b>2 - Kwenda Vodacom M-Pesa</b>.</li>
+                            <li>Weka Lipa Namba: <b class="text-accentGold text-sm">358796388</b></li>
+                            <li>Weka kiasi: <b>15,000 TZS</b>.</li>
+                            <li>Hakikisha majina yanakuja: <b class="text-white">DIGITAL TECH</b>.</li>
+                            <li>Weka PIN kukamilisha.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- CRDB Bank -->
+                <div class="border border-amber-600/40 rounded-xl bg-[#18120B] overflow-hidden">
+                    <button onclick="toggleAccordion('crdb-guide')" class="w-full p-4 text-left flex justify-between items-center hover:bg-cardHover transition">
+                        <span class="text-sm font-bold text-white">CRDB Bank (SimBanking)</span>
+                        <span class="text-xs text-accentGold">𝐌𝐄𝐍𝐔 &darr;</span>
+                    </button>
+                    <div id="crdb-guide" class="p-4 border-t border-borderCol bg-cardBg space-y-2 text-xs hidden">
+                        <ol class="list-decimal list-inside space-y-1.5 text-gray-300">
+                            <li>Piga <b>*150*03#</b> au fungua SimBanking App.</li>
+                            <li>Chagua <b>4 - Malipo / Lipa kwa Simu</b>.</li>
+                            <li>Chagua <b>Kwenda Mtandao wa Simu</b>.</li>
+                            <li>Weka Lipa Namba: <b class="text-accentGold text-sm">358796388</b></li>
+                            <li>Weka kiasi: <b>15,000 TZS</b>.</li>
+                            <li>Hakikisha majina yanakuja: <b class="text-white">DIGITAL TECH</b>.</li>
+                            <li>Weka PIN kukamilisha.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- NMB Bank -->
+                <div class="border border-amber-600/40 rounded-xl bg-[#18120B] overflow-hidden">
+                    <button onclick="toggleAccordion('nmb-guide')" class="w-full p-4 text-left flex justify-between items-center hover:bg-cardHover transition">
+                        <span class="text-sm font-bold text-white">NMB Bank (NMB Mkononi)</span>
+                        <span class="text-xs text-accentGold">𝐌𝐄𝐍𝐔 &darr;</span>
+                    </button>
+                    <div id="nmb-guide" class="p-4 border-t border-borderCol bg-cardBg space-y-2 text-xs hidden">
+                        <ol class="list-decimal list-inside space-y-1.5 text-gray-300">
+                            <li>Piga <b>*150*66#</b> au fungua NMB App.</li>
+                            <li>Chagua <b>5 - Lipa kwa Simu / Merchant</b>.</li>
+                            <li>Chagua <b>Kwenda Vodacom M-Pesa</b>.</li>
+                            <li>Weka Lipa Namba: <b class="text-accentGold text-sm">358796388</b></li>
+                            <li>Weka kiasi: <b>15,000 TZS</b>.</li>
+                            <li>Hakikisha majina yanakuja: <b class="text-white">DIGITAL TECH</b>.</li>
+                            <li>Weka PIN kukamilisha.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEHEMU YA KUTHIBITISHA MALIPO NA HALI YA PENDING -->
+            <div class="bg-[#120D08] border border-accentGold/50 rounded-xl p-4 space-y-3 shadow-xl">
+                <div class="flex items-center gap-2 text-accentGold font-bold text-xs uppercase tracking-wider">
+                    <i class="fa-solid fa-shield-halved text-green-400 text-sm"></i> Thibitisha Malipo Yako 
+                </div>
+                <p class="text-[11px] text-red-200">
+                   Baada ya kulipia 15,000 TZS ingiza namba yako ya simu uliyotumia kulipia kisha uguse <b>Thibitisha</b>:
+                </p>
+                <div class="flex gap-2">
+                    <input type="tel" id="payment-verify-phone" placeholder="Ingiza namba yako (07XXXXXXXX)" class="w-full bg-[#18120B] border border-borderCol rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                    <button onclick="submitPaymentVerification()" class="bg-accentGold text-darkBg font-bold px-4 py-2 rounded-lg text-xs hover:bg-opacity-90 transition-all shrink-0">
+                        Thibitisha
+                    </button>
+                </div>
+                <!-- PENDING / LOADING STATUS BOX -->
+                <div id="payment-status-box" class="hidden p-3 bg-cardBg border border-amber-600/40 rounded-lg text-xs space-y-2 text-center">
+                    <div id="payment-status-text" class="text-amber-400 font-mono flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Malipo yako yanashughulikiwa... <b>Pending</b>
+                    </div>
+                    <button onclick="checkPaymentStatus()" class="bg-[#18120B] border border-accentGold/40 text-accentGold font-bold px-3 py-1.5 rounded text-[11px] hover:bg-cardHover transition-all">
+                        <i class="fa-solid fa-rotate"></i>Refresh Status
                     </button>
                 </div>
             </div>
 
-            <!-- WITHDRAWAL CARD -->
-            <div class="glass-card rounded-2xl p-4 relative overflow-hidden border-l-4 border-l-orange-500 flex flex-col justify-between">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-orange-400">WITHDRAWAL</span>
-                    <div class="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center">
-                        <i class="fa-solid fa-download text-sm"></i>
-                    </div>
+            <!-- SANDUKU LA MAELEKEZO YA BAADA YA KULIPIA -->
+            <div class="bg-[#18120B] border border-accentGold/60 rounded-xl p-4 space-y-2 shadow-xl">
+                <div class="flex items-center gap-2 text-accentGold font-bold text-xs uppercase tracking-wider">
+                    <i class="fa-solid fa-circle-info text-green-400 text-sm"></i> Maelekezo Baada ya Kulipia 
                 </div>
-                <div>
-                    <div class="text-2xl font-black text-white tracking-tight">TZS <span id="withdrawVal">0</span></div>
-                    <button onclick="openWithdrawModal()" class="mt-3 w-full bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs py-2 px-3 rounded-xl transition duration-200 shadow-md flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-clock-rotate-left"></i>
-                        <span>History</span>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- PAYMENT METHOD INFO NOTE -->
-        <div class="bg-amber-950/40 border border-amber-800/40 rounded-xl p-3 flex items-center gap-3 text-xs text-amber-200/90 shadow-sm">
-            <i class="fa-solid fa-circle-check text-emerald-400 text-base flex-shrink-0"></i>
-            <span>Malipo hufanyika kupitia <strong>M-Pesa</strong>, <strong>Airtel</strong>, <strong>Halopesa</strong> na <strong>Mix by Yas</strong> ndani ya dakika chache.</span>
-        </div>
-
-        <!-- ONLINE GUESTS SECTION -->
-        <div class="space-y-4 pt-2">
-            <!-- Header with Active counts and Total Registered Foreigners Banner -->
-            <div class="bg-gradient-to-r from-amber-950/80 via-brand-card to-amber-950/80 p-3.5 rounded-2xl border border-amber-800/40 shadow-md space-y-2">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-emerald-500 pulse-dot inline-block"></span>
-                        <h2 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-200">
-                            WAZUNGU WALIOPO ONLINE
-                        </h2>
-                    </div>
-                    <span class="text-xs font-black bg-emerald-950 text-emerald-400 border border-emerald-700/60 px-3 py-1 rounded-full shadow-inner" id="onlineCountBadge">
-                        50+ Active Now
-                    </span>
-                </div>
-                
-                <div class="flex items-center justify-between pt-1 border-t border-amber-900/40 text-[11px] text-amber-200/90 font-medium">
-                    <span class="flex items-center gap-1">
-                        <i class="fa-solid fa-earth-americas text-amber-400"></i>
-                        <span>Wazungu Wote Waliopo Mtandaoni: <strong class="text-white font-extrabold text-xs">5,000+</strong></span>
-                    </span>
-                    <span class="text-emerald-400 font-bold"><i class="fa-solid fa-users text-[10px]"></i> 3,480 Active Learners</span>
-                </div>
-            </div>
-
-            <!-- GUEST CARDS LIST CONTAINER -->
-            <div class="space-y-4" id="guestListContainer">
-                <!-- Dynamically generated via JavaScript -->
-            </div>
-        </div>
-
-        <!-- LIVE PAYOUTS TICKER SECTION -->
-        <div class="space-y-3 pt-4">
-            <div class="flex items-center justify-between">
-                <span class="text-xs font-extrabold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                    LIVE PAYOUTS — Miamala ya watu wanao toa pesa.
-                </span>
-                <span class="text-[10px] text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/40">● Live</span>
-            </div>
-
-            <div class="overflow-hidden rounded-2xl glass-card p-2 border border-amber-900/50 max-h-48 relative">
-                <div id="payoutsContainer" class="space-y-2 animate-marquee">
-                    <!-- Dynamic live payouts list -->
-                </div>
-            </div>
-        </div>
-
-        <!-- JOIN NOW PROMO SECTION -->
-        <div class="glass-card rounded-2xl p-6 border-2 border-purple-600/40 text-center space-y-4 relative overflow-hidden bg-gradient-to-br from-brand-card via-purple-950/30 to-brand-card">
-            <span class="text-[10px] font-black uppercase tracking-widest text-purple-300 bg-purple-950/80 px-3 py-1 rounded-full border border-purple-700/50">JIUNGE SASA</span>
-            <h3 class="text-xl font-black text-white">Anza kupata <span class="text-yellow-400">pesa leo.</span></h3>
-            <p class="text-xs text-gray-300 leading-relaxed max-w-lg mx-auto">
-                Jisajili kwa mtaji wa <strong>16,000 TZS</strong> na uanze kulipwa kwa kuwafundisha wazungu Kiswahili hapa Swahili Digital TZ.
-            </p>
-            <button onclick="triggerRegisterRedirect()" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-extrabold text-sm py-3.5 px-8 rounded-xl shadow-xl transition duration-200 transform hover:scale-105 border border-purple-400/40 inline-flex items-center gap-2">
-                <span>Jisajili sasa</span>
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            <div class="text-[11px] text-amber-300/80 font-medium pt-1">
-                <i class="fa-solid fa-comment-sms text-amber-400 mr-1"></i> SMS Msaada: <strong>0756501819</strong>
-            </div>
-        </div>
-
-        <!-- ABOUT & FOOTER SECTION -->
-        <footer class="glass-card rounded-2xl p-6 border border-amber-900/40 space-y-6 text-xs text-gray-300">
-            <div>
-                <h4 class="text-xs font-black uppercase text-amber-400 tracking-wider mb-2">ABOUT US</h4>
-                <h3 class="text-base font-extrabold text-white mb-2">Kuhusu Swahili Digital TZ</h3>
-                <p class="leading-relaxed text-gray-300">
-                    Swahili Digital TZ ni jukwaa la Kitanzania linalowaunganisha Watanzania na wageni kutoka sehemu mbalimbali duniani wanaotaka kujifunza Kiswahili. Kupitia mazungumzo ya moja kwa moja, unawafundisha wageni lugha wetu na kupata zawadi kwa kila mazungumzo unayokamilisha.
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Baada ya kufanikiwa kulipia kiasi cha <b>15,000 TZS</b>, tafadhali gusa kitufe cha <b>Login</b> hapa chini ili kuingia kwenye akaunti yako na uweze kuanza kazi mara moja bila kikwazo! 🎉
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 gap-3 text-gray-300 border-t border-amber-900/40 pt-4">
-                <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Dhamira yetu</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-lock text-emerald-400"></i> Usalama</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-user-shield text-emerald-400"></i> Sera ya Faragha</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-file-contract text-emerald-400"></i> Masharti ya Matumizi</div>
-            </div>
-
-            <div class="border-t border-amber-900/40 pt-4 space-y-2">
-                <h5 class="font-bold text-white uppercase text-[11px]">Msaada kwa wateja</h5>
-                <p class="flex items-center gap-2 text-gray-300">
-                    <i class="fa-solid fa-phone text-emerald-400"></i> Normal SMS: <strong>0756501819</strong>
-                </p>
-                <p class="flex items-center gap-2 text-gray-300">
-                    <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp Support: <strong>0799223490</strong>
-                </p>
-                <p class="flex items-center gap-2 text-gray-300">
-                    <i class="fa-solid fa-envelope text-amber-400"></i> Email: <strong>browniedigital@gmail.com</strong>
-                </p>
-            </div>
-
-            <!-- AUDIO GUIDE PLAYER WIDGET -->
-            <div class="border-t border-amber-900/40 pt-5">
-                <div class="bg-gradient-to-r from-amber-950 via-brand-dark to-amber-950 p-4 rounded-2xl border border-amber-600/50 shadow-xl space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-base">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-extrabold text-white">MWONGOZO WA KUJISAJILI</h5>
-                                <p class="text-[10px] text-amber-300/80">Soma maelekezo ya jinsi ya kujiunga na kuanza kazi</p>
-                            </div>
-                        </div>
-                        <span class="text-[9px] font-bold uppercase bg-amber-900/60 text-amber-300 px-2 py-0.5 rounded border border-amber-700/50">Maelekezo</span>
-                    </div>
-
-                    <!-- Voice Script Preview Text -->
-                    <div class="bg-brand-dark/90 p-3 rounded-xl border border-amber-900/40 text-[11px] italic text-gray-300 leading-relaxed">
-                        "Karibu Swahili Digital TZ. Hapa nitakuelekeza jinsi ya kujiunga na kupata akaunti yako na kuweza kufanya kazi. Kabla ya yote, kabla ya kuweza kuchat, basi itabidi uweze kutengeneza akaunti. Utaigusa hapa kwenye sehemu ya kujisajili ili uweze kutengeneza akaunti yako. Na ili akaunti yako iwe active na uweze kuanza kuchat na kulipwa, itahitajika ulipie kiasi cha shilingi elfu kumi na sita{16,000} kama activation fee ya mtaji wa kuweza kujiunga na upate Account yako."
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-amber-900/40 pt-4 text-center text-[11px] text-gray-400 space-y-1">
-                <p>© 2026 Swahili Digital TZ. All Rights Reserved.</p>
-                <p class="font-extrabold text-amber-500 tracking-widest uppercase">BROWNIE TECH</p>
-            </div>
-        </footer>
-
-    </main>
-
-    <!-- FLOATING CUSTOMER CARE BUTTON -->
-    <button onclick="openCustomerCareWidget()" class="fixed bottom-5 right-5 z-40 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-emerald-400/40 transition hover:scale-105 active:scale-95">
-        <i class="fa-brands fa-whatsapp text-base"></i>
-        <span>Customer care</span>
-    </button>
-
-    <!-- WITHDRAWAL MODAL -->
-    <div id="withdrawModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
-        <div id="withdrawModalBox" class="glass-card w-full max-w-md rounded-3xl p-6 border border-amber-600/40 shadow-2xl space-y-5 transition-transform transform scale-95">
-            <!-- Step 1: Input -->
-            <div id="withdrawStep1" class="space-y-4">
-                <div class="flex items-center justify-between border-b border-amber-900/40 pb-3">
-                    <h3 class="font-extrabold text-white text-base flex items-center gap-2">
-                        <i class="fa-solid fa-money-bill-transfer text-emerald-400"></i> TOA PESA
-                    </h3>
-                    <button onclick="closeWithdrawModal()" class="text-gray-400 hover:text-white p-1">
-                        <i class="fa-solid fa-xmark text-lg"></i>
-                    </button>
-                </div>
-
-                <div class="bg-brand-dark/80 p-3.5 rounded-2xl border border-amber-900/40 space-y-1">
-                    <span class="text-[10px] text-gray-400 uppercase font-semibold">Salio Linaloweza Kutolewa</span>
-                    <div class="text-xl font-black text-amber-400">TZS <span id="modalCurrentBalance">0</span></div>
-                </div>
-
-                <div class="space-y-2">
-                    <label class="text-xs font-bold text-gray-300">Ingiza Kiasi Unachotaka Kutoa (TZS):</label>
-                    <input type="number" placeholder="Mfano: 37700" class="w-full bg-brand-dark border border-amber-800/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                </div>
-
-                <div class="space-y-2">
-                    <label class="text-xs font-bold text-gray-300">Chagua Mtandao wa Malipo:</label>
-                    <select class="w-full bg-brand-dark border border-amber-800/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                        <option>M-Pesa (Vodacom)</option>
-                        <option>Airtel Money</option>
-                        <option>Mix by Yas (Tigo)</option>
-                        <option>Halopesa (Halotel)</option>
-                    </select>
-                </div>
-
-                <button onclick="submitWithdrawRequest()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm py-3.5 rounded-xl shadow-lg transition">
-                    THIBITISHA KUTOA PESA
-                </button>
-            </div>
-
-            <!-- Step 2: Error/Account Activation Requirement -->
-            <div id="withdrawStep2" class="space-y-4 hidden text-center">
-                <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center text-2xl mx-auto">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-
-                <h3 class="text-lg font-black text-white">HUWEZI KUTOA PESA</h3>
-
-                <p class="text-xs text-gray-300 leading-relaxed bg-brand-dark/90 p-4 rounded-2xl border border-amber-900/50">
-                    Huwezi kutoa pesa kwa sasa kwa sababu bado hujathibitisha au kutengeneza akaunti yako rasmi ya <strong>Swahili Digital TZ</strong>.<br><br>
-                    Kujiunga na kuanza kupokea malipo rasmi, unapaswa kujisajili kwa mtaji wa <strong>16,000 TZS inayo lipwa mala moja TU.</strong>.
-                </p>
-
-                <button onclick="triggerRegisterRedirect()" class="w-full bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 text-white font-black text-sm py-3.5 rounded-xl shadow-xl flex items-center justify-center gap-2">
-                    <span>JISAJILI SASA (TZS 16,000)</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-
-                <button onclick="closeWithdrawModal()" class="text-xs text-gray-400 underline">Funga</button>
+            <div class="text-center pt-2 flex justify-between items-center">
+              <p class="signup-text text-xs text-gray-300">
+                Already paid? 
+                <button onclick="openLoginModal()" class="text-xs text-accentGold font-bold hover:underline ml-1">LOGIN HERE &rarr;</button>
+              </p>
             </div>
         </div>
     </div>
 
-    <!-- CHAT MODAL -->
-    <div id="chatModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden">
-        <div class="glass-card w-full max-w-md h-[88vh] rounded-3xl flex flex-col border border-amber-600/40 shadow-2xl overflow-hidden">
-            <!-- Header -->
-            <div class="p-4 bg-brand-dark/90 border-b border-amber-900/50 flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <img id="chatAvatar" src="" class="w-10 h-10 rounded-full object-cover border border-amber-500/50">
+    <!-- MAIN APP DASHBOARD - NOW DISPLAYED DIRECTLY BY DEFAULT -->
+    <div id="main-app" class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="w-64 bg-cardBg border-r border-borderCol flex flex-col transition-all duration-300 z-30 hidden md:flex">
+            <div class="p-4 border-b border-borderCol flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-accentGold/10 border border-accentGold/20 flex items-center justify-center text-accentGold font-bold overflow-hidden p-0.5">
+                        <span class="font-black text-xs text-white">S<span class="text-accentGold">W</span></span>
+                    </div>
                     <div>
-                        <h4 id="chatName" class="font-extrabold text-white text-sm"></h4>
-                        <p id="chatTopic" class="text-[10px] text-amber-300/80 font-medium"></p>
+                        <h2 class="text-sm font-bold text-accentGold  tracking-wide">𝐃𝐈𝐆𝐈𝐓𝐀𝐋 𝐂𝐇𝐀𝐓</h2>
+                        <span class="text-[10px] text-white font-mono">MENU</span>
                     </div>
                 </div>
+                <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            
+            <div class="p-3">
+                <div class="bg-[#18120B] border border-amber-600/40 rounded-lg p-2.5 text-xs flex items-center justify-between">
+                    <span class="text-gray-300 font-medium">Status</span>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-600/40 text-green-300 border border-green-500/20">ACTIVE</span>
+                </div>
+            </div>
 
-                <div class="flex items-center gap-3">
-                    <div class="bg-emerald-950/80 border border-emerald-700/60 text-emerald-400 px-3 py-1 rounded-full text-xs font-black flex items-center gap-1.5">
-                        <i class="fa-solid fa-stopwatch text-xs"></i>
-                        <span id="chatTimer">01:00</span>
-                    </div>
-                    <button onclick="closeChatModal()" class="text-gray-400 hover:text-white">
-                        <i class="fa-solid fa-xmark text-lg"></i>
+            <nav class="flex-1 overflow-y-auto px-3 space-y-1 py-2 text-xs">
+                <a href="#" onclick="switchTab('dashboard')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium bg-accentGold text-darkBg transition-all shadow-sm"><i class="fa-solid fa-house w-5"></i> Dashboard</a>
+                <a href="#" onclick="switchTab('chat')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-comments w-5"></i> Chat Zone</a>
+                <a href="#" onclick="switchTab('withdraw')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-money-bill-transfer w-5 text-white"></i> Withdraw Funds</a>
+                <a href="#" onclick="switchTab('tiktok')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-brands fa-tiktok w-5"></i> TikTok Tasks</a>
+                <a href="#" onclick="switchTab('youtube')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-brands fa-youtube w-5"></i> YouTube Tasks</a>
+                <a href="#" onclick="switchTab('whatsapp')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-brands fa-whatsapp w-5"></i> WhatsApp Status</a>
+                <a href="#" onclick="switchTab('ads')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-rectangle-ad w-5"></i> Ad Watching</a>
+                <a href="#" onclick="switchTab('trivia')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-circle-question w-5"></i> Trivia Quiz</a>
+                <a href="#" onclick="switchTab('translate')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-language w-5"></i> Language Translate</a>
+                <a href="#" onclick="switchTab('write')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-pen-nib w-5"></i> Write & Earn</a>
+                <a href="#" onclick="switchTab('spin')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-dharmachakra w-5"></i> Spin Wheel</a>
+                <div class="border-t border-borderCol my-2 pt-2"></div>
+                <a href="#" onclick="switchTab('ebooks')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-book w-5"></i> Ebooks</a>
+                <a href="#" onclick="switchTab('community')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-users w-5"></i> Community Hub</a>
+                <a href="#" onclick="switchTab('movies')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-film w-5"></i> Movie Hub</a>
+                <a href="#" onclick="switchTab('trading')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-chart-line w-5"></i> Trading Room</a>
+                <a href="#" onclick="switchTab('marketplace')" class="flex items-center gap-3 px-3 py-3.5 rounded-lg font-medium text-gray-300 hover:bg-cardHover hover:text-white transition-all"><i class="fa-solid fa-store w-5"></i> Marketplace</a>
+            </nav>
+
+            <div class="p-3 border-t border-accentGold flex gap-2">
+                <button onclick="openLoginModal()" class="flex-1 bg-accentGold text-darkBg py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 flex flex-col overflow-hidden bg-darkBg">
+            
+            <header class="bg-cardBg/95 backdrop-blur-md border-b border-borderCol h-16 flex items-center justify-between px-6 z-20">
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-bars text-lg"></i></button>
+                    <span class="text-sm font-semibold text-white tracking-wide">ＳＷＡＨＩＬＩ ＤＩＧＩＴＡＬ</span>
+                </div>
+                
+                <!-- SEHEMU YA KULIA: Live Tarehe/Muda na Kitufe cha Login/Register -->
+                <div class="flex items-center gap-4 relative">
+                    <span id="live-datetime-display" class="text-xs font-mono text-green-300 hidden sm:inline"></span>
+                    <button onclick="openLoginModal()" class="bg-accentGold text-darkBg font-bold px-3 py-1.5 rounded-lg text-xs hover:bg-opacity-90 transition-all flex items-center gap-1.5 shadow-md">
+                        <i class="fa-solid fa-user"></i> Login / Register
                     </button>
                 </div>
+            </header>
+
+            <div class="flex-1 overflow-y-auto p-6 space-y-6">
+
+                <!-- DASHBOARD TAB -->
+                <div id="tab-content-dashboard" class="space-y-6">
+                    <div class="bg-cardBg border border-green-600/40 rounded-2xl p-6 relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <span class="text-xs text-accentGold font-semibold uppercase tracking-wider" id="dynamic-announcement">📢 SYSTEM ANNOUNCEMENT 🚨</span>
+                            <h2 class="text-xl font-bold text-white mt-1" id="user-welcome-display">Welcome to Swahili Digital</h2>
+                            <p class="text-xs text-red-300 mt-1">KARIBU [SWAHILI DIGITAL]; Unahitajika kuwa na account yako? nirahisi sana gusa CREATE ACCOUNT itakupeleka kuweka taarifa zako baada kujisajili, Ada [fee] ni 15,000 inayo lipwa mala moja TU na baada ya malipo, Utaingia moja kwa moja kwenye account yako. HAPPY MONEY DAY🎉.
+
+                            <P>⚠️ HAKIKISHA TAARIFA ZOTE UNAZOJAZA NI SAHIHI.📌</P>
+                            </p>
+                        </div>
+                        <button onclick="switchTab('chat')" class="bg-accentGold text-darkBg font-bold px-4 py-2 rounded-lg text-xs hover:bg-opacity-90 transition-all shadow-md shrink-0">Chat & Earn 24/7</button>
+                    </div>
+                    <div class="border-t border-yellow-400 mt-2.5 pt-2 flex justify-between items-center text-xs"></div>
+
+                    <!-- Earnings Grid Cards with USD Approximation -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div class="bg-cardBg border border-amber-600/40 rounded-xl p-5 hover:border-accentGold/60 transition">
+                          <span class="text-xs text-gray-400">NET INCOME</span>
+                          <span class="text-[10px] text-green-400 font-semibold bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">Active</span>
+                          <div class="text-2xl font-bold text-white mt-1"><span id="net-income-val">0.00</span> <span class="text-sm font-normal text-accentGold">TZS</span></div>
+                          <div class="text-[11px] text-gray-400 mt-1" id="net-income-usd">USD approx. $0.00</div>
+                      </div>                         
+                       <div class="bg-cardBg border border-amber-600/40 rounded-xl p-5 hover:border-accentGold/60 transition">
+                        <span class="text-xs text-gray-400">Main Balance</span> 
+                       <span class="text-[10px] text-green-400 font-semibold bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">Active</span>
+                        <div class="text-2xl font-bold text-accentGold mt-1"><span id="main-balance-val">0.00</span> <span class="text-sm font-normal">TZS</span></div>
+                        <div class="text-[11px] text-gray-400 mt-1" id="main-balance-usd">USD approx. $0.00</div>
+                    </div>
+                    <div class="bg-cardBg border border-amber-600/40 rounded-xl p-5 flex flex-col justify-between bg-gradient-to-br from-cardBg to-[#2E2218] hover:border-accentGold/60 transition">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs text-accentGold font-bold">BONUS / EXPENSES</span>
+                            <span class="text-[10px] text-green-400 font-semibold bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">Active</span>
+                        </div>
+                            <div class="text-lg font-bold text-white mt-2">Bonus: 20,000.00 TZS</div>
+                            <div class="text-xs text-red-400/80 mt-1">Activation Fee: 15,000 TZS</div>
+                            <div class="border-t border-green-400 mt-2.5 pt-2 flex justify-between items-center text-xs">
+                                <span class="text-gray-400">Withdrawn: <b class="text-white" id="card-withdrawn-val">0.00</b> TZS</span>
+                                <span class="text-gray-400">Balance: <b class="text-accentGold" id="card-remaining-val">0.00</b> TZS</span>
+                            </div>
+                            <div class="flex gap-2 mt-2.5">
+                                <button onclick="switchTab('withdraw')" class="flex-1 bg-accentGold text-darkBg font-bold py-1.5 px-3 rounded-lg text-xs hover:bg-opacity-90 transition-all flex items-center justify-center gap-1.5">
+                                    <i class="fa-solid fa-money-bill-transfer"></i> Withdraw
+                                </button>
+                                <button onclick="switchTab('withdraw')" class="flex-1 bg-[#18120B] border border-accentGold/40 text-accentGold font-bold py-1.5 px-3 rounded-lg text-xs hover:bg-cardHover transition-all flex items-center justify-center gap-1.5">
+                                    <i class="fa-solid fa-clock-rotate-left"></i> History
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CHATTING WITH FOREIGNERS (WAZUNGU 7 JUU YA NETWORK GROWTH) -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Chatting with Foreigners</h3>
+                            <button onclick="switchTab('chat')" class="text-xs text-accentGold font-semibold hover:underline">View All &rarr;</button>
+                        </div>
+                        <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-3">
+                            <div id="dashboard-foreigners-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+                        </div>
+                    </div>
+
+                    <!-- Tasks Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-1 space-y-4">
+                            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Network Growth</h3>
+                            <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-3">
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Share Your Referrals Link 🖇️</h4>
+                                <p class="text-xs text-gray-400"> Swahili Digital Referrals Link.</p>
+                                <div class="flex gap-2">
+                                    <input id="referral-link" type="text" readonly value="https://swahilidigitaltz.digital" class="w-full bg-[#18120B] border border-borderCol rounded-lg px-3 py-2 text-xs text-gray-300 focus:outline-none">
+                                    <button id="copy-referral-link" type="button" onclick="copyReferralLink()" class="bg-accentGold text-darkBg font-bold px-3 py-2 rounded-lg text-xs hover:bg-opacity-90 transition-all">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-green-400 mt-2.5 pt-2 flex justify-between items-center text-xs"></div>
+
+                        <div class="lg:col-span-2 space-y-4">
+                            <h3 class="text-sm font-bold text-white uppercase tracking-wider">ALL TASKS</h3>
+                            <div class="space-y-3">
+                                <div onclick="switchTab('chat')" class="bg-cardBg border border-borderCol hover:border-amber-600/40 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all hover:bg-cardHover/60">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-accentGold/10 text-accentGold flex items-center justify-center font-bold">💬</div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-white">Chat everyday 24/7</h4>
+                                            <p class="text-xs text-gray-400">Engage in active conversations with foreign learners.</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="task-earnings-chat" class="text-xs font-bold text-accentGold block">0.00 TZS</span>
+                                        <span class="text-xs text-gray-400">Start &rarr;</span>
+                                    </div>
+                                </div>
+                                <div onclick="switchTab('tiktok')" class="bg-cardBg border border-borderCol hover:border-gray-400 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all hover:bg-cardHover/60">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold">🎵</div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-green-400">TikTok Tasks</h4>
+                                            <p class="text-xs text-gray-400">Watch short promo videos & earn instant rewards.</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="task-earnings-tiktok" class="text-xs font-bold text-accentGold block">0.00 TZS</span>
+                                        <span class="text-xs text-gray-400">Start &rarr;</span>
+                                    </div>
+                                </div>
+                                <div onclick="switchTab('youtube')" class="bg-cardBg border border-borderCol hover:border-green-300 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all hover:bg-cardHover/60">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center font-bold">▶️</div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-blue-400">YouTube Tasks</h4>
+                                            <p class="text-xs text-gray-400">Watch promotional videos & earn rewards.</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="task-earnings-youtube" class="text-xs font-bold text-accentGold block">0.00 TZS</span>
+                                        <span class="text-xs text-gray-400">Start &rarr;</span>
+                                    </div>
+                                </div>
+                                <div onclick="switchTab('whatsapp')" class="bg-cardBg border border-borderCol hover:border-white rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all hover:bg-cardHover/60">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-green-500/10 text-green-400 flex items-center justify-center font-bold">🟢</div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-purple-400">WhatsApp Status</h4>
+                                            <p class="text-xs text-gray-400">Post updates & earn cash.</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="task-earnings-whatsapp" class="text-xs font-bold text-accentGold block">0.00 TZS</span>
+                                        <span class="text-xs text-gray-400">Start &rarr;</span>
+                                    </div>
+                                </div>
+                                <div onclick="switchTab('ads')" class="bg-cardBg border border-borderCol hover:border-red-300 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all hover:bg-cardHover/60">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold">📢</div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-accentGold">Ad Watching</h4>
+                                            <p class="text-xs text-gray-400">View promotional ads daily.</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="task-earnings-ads" class="text-xs font-bold text-accentGold block">0.00 TZS</span>
+                                        <span class="text-xs text-gray-400">Start &rarr;</span>
+                                    </div>
+                                </div>
+                                <div onclick="switchTab('trivia')" class="bg-cardBg border border-borderCol hover:border-accentGold rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all hover:bg-cardHover/60">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold">❓</div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-amber-600/40 ">Trivia Quiz</h4>
+                                            <p class="text-xs text-gray-400">Answer Swahili language quizzes.</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="task-earnings-trivia" class="text-xs font-bold text-accentGold block">0.00 TZS</span>
+                                        <span class="text-xs text-gray-400">Start &rarr;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-red-400 mt-2.5 pt-2 flex justify-between items-center text-xs"></div>
+
+                    <!-- TIMETABLE SECTION ON DASHBOARD -->
+                    <div class="space-y-4 pt-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-sm font-bold text-white uppercase tracking-wider">📅(Weekly Timetable)</h3>
+                            <span class="text-xs text-accentGold font-mono" id="current-day-label">Leo: Jumatatu</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-2 hover:border-accentGold/60 transition">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-accentGold">MONDAY</span>
+                                    <span class="text-[10px] bg-green-500/10 text-green-400 px-2 py-0.5 rounded border border-green-500/20">YouTube Tasks</span>
+                                </div>
+                                <p class="text-xs text-gray-300">Kazi kuu: Kuangalia na kujibu video za YouTube Tasks ili kuanza wiki na mapato.</p>
+                            </div>
+                            <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-2 hover:border-accentGold/60 transition">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-accentGold">TUESDAY</span>
+                                    <span class="text-[10px] bg-pink-500/10 text-pink-400 px-2 py-0.5 rounded border border-pink-500/20">TikTok Tasks</span>
+                                </div>
+                                <p class="text-xs text-gray-300">Kazi kuu: Kukagua video za TikTok na kushiriki misheni fupi za burudani.</p>
+                            </div>
+                            <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-2 hover:border-accentGold/60 transition">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-accentGold">WEDNESDAY</span>
+                                    <span class="text-[10px] bg-accentGold/10 text-accentGold px-2 py-0.5 rounded border border-accentGold/20">language translate</span>
+                                </div>
+                                <p class="text-xs text-gray-300">Kazi kuu: kutranslate na kufundisha Kiswahili kwa ufasaha.</p>
+                            </div>
+                            <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-2 hover:border-accentGold/60 transition">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-accentGold">THURSDAY</span>
+                                    <span class="text-[10px] bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded border border-purple-500/20">Trivia Quiz</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Kazi kuu: Kujibu maswali ya masomo na majaribio ya lugha kupitia Trivia Quiz.</p>
+                            </div>
+                            <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-2 hover:border-accentGold/60 transition">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-accentGold">FRIDAY</span>
+                                    <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">WhatsApp & Ads</span>
+                                </div>
+                                <p class="text-xs text-gray-300">Kazi kuu: Kuweka Status za WhatsApp na kutazama matangazo ya biashara (Ad Watching).</p>
+                            </div>
+                            <div class="bg-cardBg border border-amber-600/40 rounded-xl p-4 space-y-2 hover:border-accentGold/60 transition">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-accentGold">SATURDAY & SUNDAY</span>
+                                    <span class="text-[10px] bg-green-500/10 text-green-300 px-2 py-0.5 rounded border border-green-500/20">Spin & Withdraw</span>
+                                </div>
+                                <p class="text-xs text-gray-300">Kazi kuu: Kuzungusha gurudumu la bahati (Spin Wheel) na kutoa pesa zako.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 pb-4 text-center border-t border-borderCol mt-6">
+                        <p class="text-xs text-gray-400 mb-2">Jisajili hapa kupata akaunti yako?</p>
+                        <button onclick="openRegisterModal()" class="bg-accentGold text-darkBg font-bold px-6 py-3 rounded-xl text-xs hover:bg-opacity-90 transition-all shadow-lg shadow-accentGold/15">
+                            Create Account &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SEHEMU MAALUM YA WITHDRAW -->
+                <div id="tab-content-withdraw" class="space-y-6 hidden">
+                    <div class="bg-cardBg border border-amber-600/40 rounded-2xl p-6 space-y-5">
+                        <div class="border-b border-amber-600/40 pb-4 flex justify-between items-center">
+                            <div>
+                                <h2 class="text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-money-bill-transfer text-accentGold"></i> Withdraw Funds
+                                </h2>
+                                <p class="text-xs text-gray-400 mt-1">Transfer earnings directly to your mobile money account.</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs text-gray-400 block">Salio Lako:</span>
+                                <span id="withdraw-page-balance" class="text-lg font-bold text-accentGold">0.00 TZS</span>
+                            </div>
+                        </div>
+
+                        <!-- Withdrawal Form -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Withdraw From (Option)</label>
+                                <select id="withdraw-source-type" class="w-full bg-[#18120B] border border-borderCol rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                                    <option value="Main Balance">Main Balance</option>
+                                    <option value="YouTube Revenue">YouTube Revenue</option>
+                                    <option value="TikTok Video Balance">TikTok Video</option>
+                                    <option value="Bonus Balance">Bonus Balance</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Amount to withdraw [Min:1000 TZS]</label>
+                                <input type="number" id="withdraw-input-amount" placeholder="Weka kiasi" class="w-full bg-[#18120B] border border-borderCol rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Mtandao wa Simu</label>
+                                <select id="withdraw-network" class="w-full bg-[#18120B] border border-borderCol rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                                    <option>Vodacom M-Pesa</option>
+                                    <option>Mixx by Yas (Tigo Pesa)</option>
+                                    <option>Airtel Money</option>
+                                    <option>Halotel</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-400 mb-1">Phone Number</label>
+                                <input type="tel" id="withdraw-phone" placeholder="07XXXXXXXX" class="w-full bg-[#18120B] border border-borderCol rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                            </div>
+                        </div>
+
+                        <button onclick="submitWithdrawal()" class="w-full bg-accentGold text-darkBg font-bold py-3 rounded-lg hover:bg-opacity-90 transition-all text-sm uppercase shadow-lg">
+                            CONFIRM WITHDRAWAL →
+                        </button>
+                    </div>
+
+                    <!-- Withdraw History Section -->
+                    <div class="bg-cardBg border border-amber-600/40 rounded-2xl p-6 space-y-4">
+                        <div class="flex items-center gap-2 border-b border-amber-600/40 pb-3">
+                            <i class="fa-solid fa-clock-rotate-left text-accentGold text-base"></i>
+                            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Withdraw History</h3>
+                        </div>
+                        <div id="withdraw-history-list" class="space-y-2 text-xs text-gray-400">
+                            <p class="py-2">Hakuna muamala wa kutoa pesa uliowahi kufanyika bado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHAT TAB -->
+                <div id="tab-content-chat" class="space-y-4 hidden">
+                    <div id="active-chat-box" class="bg-cardBg border border-green-300 rounded-2xl p-6 hidden space-y-4 mb-4">
+                        <div class="flex justify-between items-center border-b border-borderCol pb-3">
+                            <div class="flex items-center gap-3">
+                                <div id="active-chat-avatar" class="w-10 h-10 rounded-full bg-accentGold/20 text-accentGold flex items-center justify-center font-bold text-xs overflow-hidden"></div>
+                                <div>
+                                    <h3 id="chat-with-name" class="text-sm font-bold text-white">Chat with Student</h3>
+                                    <span id="active-chat-status" class="text-[10px] text-green-400">Online</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div id="chat-timer-display" class="px-2.5 py-1 bg-amber-600/20 border border-amber-600/40 text-accentGold font-mono text-xs rounded-lg font-bold">
+                                    01:00
+                                </div>
+                                <button onclick="closeChat()" class="text-xs text-gray-400 hover:text-white bg-cardHover px-3 py-1 rounded-lg border border-borderCol"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                            </div>
+                        </div>
+                        
+                        <div id="chat-messages" class="h-64 overflow-y-auto space-y-3 bg-[#18120B] p-4 rounded-xl border border-borderCol text-xs flex flex-col"></div>
+
+                        <div id="typing-indicator" class="text-[11px] text-accentGold italic hidden flex items-center gap-1.5 px-1">
+                            <span id="typing-name">Partner</span> is typing...
+                        </div>
+
+                        <div class="flex gap-2">
+                            <input type="text" id="chat-input" onkeypress="handleChatKeyPress(event)" placeholder="Andika ujumbe wako..." class="w-full bg-[#18120B] border border-borderCol rounded-lg px-4 py-2.5 text-xs text-white focus:outline-none focus:border-accentGold focus:ring-2 focus:ring-accentGold/20 transition">
+                            <button onclick="sendChatMessage()" class="bg-accentGold text-darkBg font-bold px-5 py-2.5 rounded-lg text-xs hover:bg-opacity-90">Send</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <div>
+                            <h2 class="text-lg font-bold text-accentGold">WAZUNGU WALIOPO ONLINE. </h2>
+                            <p class="text-xs text-gray-400">Tap to send message.</p>
+                        </div>
+                        <span id="active-user-count" class="px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-xs rounded-full font-semibold">14+ Active</span>
+                    </div>
+
+                    <div id="chat-users-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                </div>
+
+                <!-- TIKTOK TASKS TAB -->
+                <div id="tab-content-tiktok" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-pink-500/10 text-pink-400 mx-auto flex items-center justify-center text-xl font-bold">🎵</div>
+                        <h2 class="text-lg font-bold text-white">TikTok Tasks</h2>
+                        <p class="text-xs text-gray-400">Fanya task hii ujipatie mapato ya leo.</p>
+                        <button onclick="completeTask('tiktok', 35000)" class="bg-accentGold text-darkBg font-bold px-4 py-2 rounded-lg text-xs hover:bg-opacity-90 mt-2">Fanya TikTok Task (+35,000 TZS)</button>
+                    </div>
+                </div>
+
+                <!-- YOUTUBE TASKS TAB -->
+                <div id="tab-content-youtube" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-red-500/10 text-red-400 mx-auto flex items-center justify-center text-xl font-bold">▶️</div>
+                        <h2 class="text-lg font-bold text-white">YouTube Tasks</h2>
+                        <p class="text-xs text-gray-400">Tazama video mpya kwa leo.</p>
+                        <button onclick="completeTask('youtube', 40000)" class="bg-accentGold text-darkBg font-bold px-4 py-2 rounded-lg text-xs hover:bg-opacity-90 mt-2">Tazama Video (+40,000 TZS)</button>
+                    </div>
+                </div>
+
+                <!-- WHATSAPP STATUS TAB -->
+                <div id="tab-content-whatsapp" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-green-500/10 text-green-400 mx-auto flex items-center justify-center text-xl font-bold">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <h2 class="text-lg font-bold text-white">WhatsApp Status</h2>
+                        <p class="text-xs text-gray-400">Weka Status zote za leo zilizowekwa.</p>
+                        <button onclick="completeTask('whatsapp', 25000)" class="bg-accentGold text-darkBg font-bold px-4 py-2 rounded-lg text-xs hover:bg-opacity-90 mt-2">Weka Status (+25,000 TZS)</button>
+                    </div>
+                </div>
+
+                <!-- ADS TAB -->
+                <div id="tab-content-ads" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 mx-auto flex items-center justify-center text-xl font-bold">📢</div>
+                        <h2 class="text-lg font-bold text-white">Ad Watching</h2>
+                        <p class="text-xs text-gray-400">Tazama matangazo yote kwa leo.</p>
+                        <button onclick="completeTask('ads', 20000)" class="bg-accentGold text-darkBg font-bold px-4 py-2 rounded-lg text-xs hover:bg-opacity-90 mt-2">Tazama Tangazo (+20,000 TZS)</button>
+                    </div>
+                </div>
+
+                <!-- TRIVIA TAB -->
+                <div id="tab-content-trivia" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 space-y-4">
+                        <div class="flex items-center gap-3 border-b border-borderCol pb-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg font-bold">❓</div>
+                            <div>
+                                <h2 class="text-lg font-bold text-white">Trivia Quiz</h2>
+                                <p class="text-xs text-gray-400">Jibu swali hili rahisi ujipatie zawadi.</p>
+                            </div>
+                        </div>
+                        <div class="bg-[#18120B] p-4 rounded-xl border border-accentGold space-y-3">
+                            <p class="text-sm font-semibold text-white">Swali: Mbuga kubwa zaidi ya wanyama pori nchini Tanzania inaitwa nini?</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                                <button onclick="answerTrivia(true)" class="p-3 bg-cardBg border border-borderCol hover:border-accentGold rounded-lg text-left text-white transition">A) Hifadhi ya Taifa ya Serengeti</button>
+                                <button onclick="answerTrivia(false)" class="p-3 bg-cardBg border border-borderCol hover:border-accentGold rounded-lg text-left text-white transition">B) Mlima Kilimanjaro</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TRANSLATE TAB -->
+                <div id="tab-content-translate" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-yellow-500/10 text-yellow-400 mx-auto flex items-center justify-center text-xl font-bold">🌐</div>
+                        <h2 class="text-lg font-bold text-white">Language Translate</h2>
+                        <p class="text-xs text-gray-400">Hakuna kazi za tafsiri kwa sasa. Rudi siku nyingine.</p>
+                    </div>
+                </div>
+
+                <!-- WRITE TAB -->
+                <div id="tab-content-write" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-indigo-500/10 text-indigo-400 mx-auto flex items-center justify-center text-xl font-bold">✍️</div>
+                        <h2 class="text-lg font-bold text-white">Write & Earn</h2>
+                        <p class="text-xs text-gray-400">Nafasi za uandishi kwa leo.</p>
+                    </div>
+                </div>
+
+                <!-- SPIN TAB -->
+                <div id="tab-content-spin" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-4">
+                        <div class="w-16 h-16 rounded-full bg-accentGold/10 text-accentGold mx-auto flex items-center justify-center text-2xl font-bold animate-spin">🎡</div>
+                        <h2 class="text-lg font-bold text-white">Spin Wheel</h2>
+                        <p class="text-xs text-gray-400">Zungusha gurudumu la bahati ujipatie bonus ya papo hapo.</p>
+                        <div id="spin-result" class="text-sm font-bold text-accentGold"></div>
+                        <button onclick="triggerSpinWheel()" class="bg-accentGold text-darkBg font-bold px-6 py-3 rounded-xl text-xs hover:bg-opacity-90 shadow-lg">Zungusha Gurudumu (Spin)</button>
+                    </div>
+                </div>
+
+                <!-- EBOOKS TAB -->
+                <div id="tab-content-ebooks" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-accentGold/10 text-accentGold mx-auto flex items-center justify-center text-xl font-bold">📚</div>
+                        <h2 class="text-lg font-bold text-white">Ebooks & Guides</h2>
+                        <p class="text-xs text-gray-400">Hakuna vitabu vipya vilivyowekwa kwa sasa. Rudi siku nyingine.</p>
+                    </div>
+                </div>
+
+                <!-- COMMUNITY HUB TAB -->
+                <div id="tab-content-community" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 mx-auto flex items-center justify-center text-xl font-bold">👥</div>
+                        <h2 class="text-lg font-bold text-white">Community Hub</h2>
+                        <p class="text-xs text-gray-400">Jumuika na wafanyabiashara wengine.</p>
+                    </div>
+                </div>
+
+                <!-- MOVIE HUB TAB -->
+                <div id="tab-content-movies" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-red-500/10 text-red-400 mx-auto flex items-center justify-center text-xl font-bold">🎬</div>
+                        <h2 class="text-lg font-bold text-white">Movie Hub</h2>
+                        <p class="text-xs text-gray-400">Burudani na filamu mpya.</p>
+                    </div>
+                </div>
+
+                <!-- TRADING ROOM TAB -->
+                <div id="tab-content-trading" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 mx-auto flex items-center justify-center text-xl font-bold">📈</div>
+                        <h2 class="text-lg font-bold text-white">Trading Room</h2>
+                        <p class="text-xs text-gray-400">Chati za sarafu na uchambuzi wa Market📉.</p>
+                    </div>
+                </div>
+
+                <!-- MARKETPLACE TAB -->
+                <div id="tab-content-marketplace" class="space-y-4 hidden">
+                    <div class="bg-cardBg border border-green-300 rounded-2xl p-6 text-center space-y-3">
+                        <div class="w-12 h-12 rounded-full bg-orange-500/10 text-orange-400 mx-auto flex items-center justify-center text-xl font-bold">🛒</div>
+                        <h2 class="text-lg font-bold text-white">Marketplace</h2>
+                        <p class="text-xs text-gray-400">Bidhaa na huduma za kidijitali.</p>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Messages Box -->
-            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs bg-brand-dark/40">
-                <!-- Chat bubbles -->
-            </div>
-
-            <div id="typingIndicator" class="px-4 py-1 text-[10px] text-amber-400 italic hidden">
-                ... typing response ...
-            </div>
-
-            <!-- Input area -->
-            <div class="p-3 bg-brand-dark/90 border-t border-amber-900/50 flex items-center gap-2">
-                <input id="chatInput" onkeypress="handleKeyPress(event)" type="text" placeholder="Andika ujumbe hapa..." class="flex-1 bg-brand-dark border border-amber-800/50 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
-                <button onclick="sendChatMessage()" class="bg-indigo-600 hover:bg-indigo-500 text-white w-10 h-10 rounded-xl flex items-center justify-center shadow-md">
-                    <i class="fa-solid fa-paper-plane text-xs"></i>
-                </button>
-            </div>
-        </div>
+            <!-- Footer -->
+            <footer class="w-full text-center py-4 text-xs text-zinc-500 border-t border-zinc-800/60 mt-auto">
+                &copy; 2026 Swahili Works • All Rights Reserved.
+            </footer>
+        </main>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Registration target URL provided by user
-        const REGISTER_LINK = "https://moxeraagencies.com/register?ref=JOBSCODE";
+      let netIncome = 0.00;
+      let availableBalance = 0.00;
+      let totalWithdrawn = 0.00;
+      let withdrawHistory = [];
+      let currentActiveUser = null;
+      let chatTimerInterval = null;
+      let timerSeconds = 60;
+      let rewardGiven = false;
 
-        // GUEST DATA ARRAY (16 Online Foreign Learners)
-        const GUEST_DATA = [
-            { id: 1, name: "Emma W.", country: "🇬🇧", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "24 min", topic: "Safari & Wildlife", tzs: "37,700", usd: "14.50", initialMsgs: ["Hey! 🇬🇧 Nice to meet you.", "I only know 'Jambo' and 'Asante' 😊", "My big interest is safari & wildlife — how do I start?"] },
-            { id: 2, name: "Alexandro G.", country: "🇮🇹", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "34 min", topic: "Tanzanian Food", tzs: "35,880", usd: "13.80", initialMsgs: ["Ciao! I am visiting Arusha next month.", "Can you teach me how to order food in Swahili?"] },
-            { id: 3, name: "Lucas M.", country: "🇫🇷", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", rating: "4.6", time: "33 min", topic: "Business Swahili", tzs: "33,280", usd: "12.80", initialMsgs: ["Bonjour my friend!", "I want to learn Swahili for business greetings."] },
-            { id: 4, name: "David K.", country: "🇩🇪", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "45 min", topic: "Transport & Directions", tzs: "41,600", usd: "16.00", initialMsgs: ["Hallo! I am traveling around Zanzibar.", "How do I ask for taxi directions?"] },
-            { id: 5, name: "Omar K.", country: "🇦🇪", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "38 min", topic: "Trade & Markets", tzs: "39,000", usd: "15.00", initialMsgs: ["Marhaba! How do I bargain prices in Swahili markets?"] },
-            { id: 6, name: "Maria C.", country: "🇧🇷", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", rating: "5.0", time: "29 min", topic: "Bongo Flava Music", tzs: "35,100", usd: "13.50", initialMsgs: ["Olá! I love Diamond Platnumz songs!", "Teach me lyrics meanings please."] },
-            { id: 7, name: "Ji-Woo N.", country: "🇰🇷", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "25 min", topic: "Daily Greetings", tzs: "40,300", usd: "15.50", initialMsgs: ["Annyeong! Let's practice simple Swahili greetings."] },
-            { id: 8, name: "Hans P.", country: "🇳🇱", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80", rating: "4.6", time: "39 min", topic: "Beach & Zanzibar", tzs: "36,400", usd: "14.00", initialMsgs: ["Hujambo! I want to practice basic conversational Swahili."] },
-            { id: 9, name: "Kenji T.", country: "🇯🇵", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "41 min", topic: "Culture & Proverbs", tzs: "36,400", usd: "14.00", initialMsgs: ["Konnichiwa! Tell me about Swahili sayings."] },
-            { id: 10, name: "Amelie D.", country: "🇨🇦", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "27 min", topic: "Kanga & Fashion", tzs: "33,800", usd: "13.00", initialMsgs: ["Hi there! I am interested in Swahili fabrics and culture."] },
-            { id: 11, name: "Sophie L.", country: "🇸🇪", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "26 min", topic: "Yoga & Mindfulness", tzs: "36,925", usd: "14.20", initialMsgs: ["Hej! Teach me Swahili words for peace and nature."] },
-            { id: 12, name: "Michael B.", country: "🇺🇸", avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "28 min", topic: "Weddings & Celebrations", tzs: "35,620", usd: "13.70", initialMsgs: ["Hey! I'm attending a Swahili wedding next month!"] },
-            { id: 13, name: "Lars J.", country: "🇳🇴", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "36 min", topic: "Lakes & Fishing", tzs: "39,520", usd: "15.20", initialMsgs: ["Hallo! I am visiting Lake Victoria soon."] },
-            { id: 14, name: "Anna S.", country: "🇵🇱", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "31 min", topic: "Farming & Coffee", tzs: "37,440", usd: "14.40", initialMsgs: ["Cześć! I want to learn coffee farming terms in Swahili."] },
-            { id: 15, name: "Chen L.", country: "🇨🇳", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", rating: "4.5", time: "30 min", topic: "Technology & Mobile Money", tzs: "36,140", usd: "13.90", initialMsgs: ["Nǐ hǎo! Teach me how to ask for M-Pesa services."] },
-            { id: 16, name: "Ahmed F.", country: "🇪🇬", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "37 min", topic: "Hospitality Work", tzs: "42,900", usd: "16.50", initialMsgs: ["Salam! I am learning Swahili for hotel management."] }
-        ];
+      let taskEarnings = {
+          chat: 0.00,
+          tiktok: 0.00,
+          youtube: 0.00,
+          whatsapp: 0.00,
+          ads: 0.00,
+          trivia: 0.00
+      };
 
-        // LIVE PAYOUTS LIST
-        const LIVE_PAYOUTS = [
-            { provider: 'M-PESA', name: 'Shadrich M.', amount: '45,000 TZS' },
-            { provider: 'AIRTEL', name: 'QueenBiz A.', amount: '32,000 TZS' },
-            { provider: 'MIX BY YAS', name: 'Amtin K.', amount: '60,000 TZS' },
-            { provider: 'M-PESA', name: 'Idd S.', amount: '35,000 TZS' },
-            { provider: 'AIRTEL', name: 'Amina K.', amount: '43,000 TZS' },
-            { provider: 'MIX BY YAS', name: 'Kelvin M.', amount: '50,000 TZS' },
-            { provider: 'M-PESA', name: 'Neema J.', amount: '28,000 TZS' },
-            { provider: 'AIRTEL', name: 'Izack P.', amount: '55,000 TZS' },
-            { provider: 'MIX BY YAS', name: 'Baraka A.', amount: '65,000 TZS' }
-        ];
+      // Live DateTime Function (Updates automatically every second)
+      function updateLiveDateTime() {
+          const dtEl = document.getElementById('live-datetime-display');
+          if (!dtEl) return;
+          const now = new Date();
+          const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+          dtEl.innerText = now.toLocaleDateString('sw-TZ', options);
+      }
+      setInterval(updateLiveDateTime, 1000);
 
-        // Global User Balance State
-        let netProfitTotal = 0;
-        let balanceTotal = 0;
-        let activeGuest = null;
+      // Open Login / Auth Modal
+      function openLoginModal() {
+          const authContainer = document.getElementById('auth-container');
+          const paymentPage = document.getElementById('payment-page');
+          if (paymentPage) paymentPage.classList.add('hidden');
+          if (authContainer) authContainer.classList.remove('hidden');
+          switchAuthTab('login');
+      }
 
-        // Timer interval variable
-        let chatTimerInterval = null;
-        let secondsRemaining = 60;
-        let deferredPrompt = null;
+      function openRegisterModal() {
+          const authContainer = document.getElementById('auth-container');
+          const paymentPage = document.getElementById('payment-page');
+          if (paymentPage) paymentPage.classList.add('hidden');
+          if (authContainer) authContainer.classList.remove('hidden');
+          switchAuthTab('register');
+      }
 
-        // Install PWA Prompt Listener
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-        });
+      function closeAuthModal() {
+          const authContainer = document.getElementById('auth-container');
+          if (authContainer) authContainer.classList.add('hidden');
+      }
 
-        function installAppPrompt() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the install prompt');
-                    }
-                    deferredPrompt = null;
-                });
-            } else {
-                alert("Ili kuweka (Install) app hii kwenye Desktop au Simu yako, tumia menyu ya kivinjari chako (Chrome/Edge/Safari) na uchague 'Install' au 'Add to Home Screen'.");
-            }
-        }
+      // Submit Payment Verification (Pending Status & Refresh Logic)
+      function submitPaymentVerification() {
+          const phoneInput = document.getElementById('payment-verify-phone').value.trim();
+          const statusBox = document.getElementById('payment-status-box');
+          const statusText = document.getElementById('payment-status-text');
 
-        // Redirect helper
-        function triggerRegisterRedirect() {
-            window.open(REGISTER_LINK, '_blank') || (window.location.href = REGISTER_LINK);
-        }
+          if (!phoneInput || phoneInput.length < 10) {
+              alert('Tafadhali ingiza namba sahihi ya simu uliyotumia kulipia (07XXXXXXXX)');
+              return;
+          }
 
-        // Live Real-Time Date & Clock Function
-        function startLiveClock() {
-            const days = ["Jumapili", "Jumatatu", "Jumanne", "Jumatano", "Alhamisi", "Ijumaa", "Jumamosi"];
-            const months = ["Januari", "Februari", "Machi", "Aprili", "Mei", "Juni", "Julai", "Agosti", "Septemba", "Oktoba", "Novemba", "Desemba"];
+          statusBox.classList.remove('hidden');
+          statusText.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-400"></i> Malipo ya namba <b>${phoneInput}</b> yanashughulikiwa... Hali: <b class="text-amber-400">PENDING (Inasubiri uthibitisho)</b>`;
+      }
 
-            function updateClock() {
-                const now = new Date();
-                const dayName = days[now.getDay()];
-                const dateNum = now.getDate();
-                const monthName = months[now.getMonth()];
-                const year = now.getFullYear();
+      function checkPaymentStatus() {
+          const statusText = document.getElementById('payment-status-text');
+          if (!statusText) return;
+          
+          statusText.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-accentGold"></i> Inakagua mfumo... Hali bado ni: <b class="text-amber-400">PENDING</b>. ⚠️ Don't enter NO before payment.`;
+          setTimeout(() => {
+              alert('Malipo yako yapo kwenye ukaguzi wa mfumo (Pending). Tafadhali subiri au bonyeza Login mara tu yatakapothibitishwa.');
+          }, 800);
+      }
 
-                const hours = String(now.getHours()).padStart(2, '0');
-                const minutes = String(now.getMinutes()).padStart(2, '0');
-                const seconds = String(now.getSeconds()).padStart(2, '0');
+      function updateBalanceDisplays() {
+          const netFormatted = netIncome.toLocaleString(undefined, {minimumFractionDigits: 2});
+          const mainFormatted = availableBalance.toLocaleString(undefined, {minimumFractionDigits: 2});
+          const withdrawnFormatted = totalWithdrawn.toLocaleString(undefined, {minimumFractionDigits: 2});
+          
+          const usdRate = 2600;
+          const netUsd = (netIncome / usdRate).toFixed(2);
+          const mainUsd = (availableBalance / usdRate).toFixed(2);
 
-                const dateString = `${dayName}, ${dateNum} ${monthName} ${year}`;
-                const timeString = `${hours}:${minutes}:${seconds}`;
+          const netEl = document.getElementById('net-income-val');
+          const mainEl = document.getElementById('main-balance-val');
+          const netUsdEl = document.getElementById('net-income-usd');
+          const mainUsdEl = document.getElementById('main-balance-usd');
+          const remEl = document.getElementById('card-remaining-val');
+          const withEl = document.getElementById('card-withdrawn-val');
+          const pageBalEl = document.getElementById('withdraw-page-balance');
 
-                const dateEl = document.getElementById('liveDayDate');
-                const timeEl = document.getElementById('liveTime');
+          if (netEl) netEl.innerText = netFormatted;
+          if (mainEl) mainEl.innerText = mainFormatted;
+          if (netUsdEl) netUsdEl.innerText = `USD approx. $${netUsd}`;
+          if (mainUsdEl) mainUsdEl.innerText = `USD approx. $${mainUsd}`;
+          if (remEl) remEl.innerText = mainFormatted;
+          if (withEl) withEl.innerText = withdrawnFormatted;
+          if (pageBalEl) pageBalEl.innerText = mainFormatted + " TZS";
 
-                if (dateEl) dateEl.innerText = dateString;
-                if (timeEl) timeEl.innerText = timeString;
-            }
+          for (let key in taskEarnings) {
+              const el = document.getElementById(`task-earnings-${key}`);
+              if (el) {
+                  el.innerText = taskEarnings[key].toLocaleString(undefined, {minimumFractionDigits: 2}) + " TZS";
+              }
+          }
+      }
 
-            updateClock();
-            setInterval(updateClock, 1000);
-        }
+      function renderWithdrawHistory() {
+          const list = document.getElementById('withdraw-history-list');
+          if (!list) return;
+          if (withdrawHistory.length === 0) {
+              list.innerHTML = '<p class="py-2">Hakuna muamala wa kutoa pesa uliowahi kufanyika bado.</p>';
+              return;
+          }
+          list.innerHTML = withdrawHistory.map(item => `
+              <div class="bg-[#18120B] border border-borderCol rounded-lg p-3 flex justify-between items-center">
+                  <div>
+                      <div class="font-bold text-white">${item.amount.toLocaleString(undefined, {minimumFractionDigits: 2})} TZS &bull; <span class="text-accentGold">${item.network}</span> (${item.sourceType})</div>
+                      <div class="text-[11px] text-gray-400">${item.phone || 'Namba haijawekwa'} &bull; ${item.date}</div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">Pending</span>
+              </div>
+          `).join('');
+      }
+      
+      // WAZUNGU 20 KAMILI WALIOPO ONLINE
+      const chatUsers = [
+          { id: 1, name: "Emma W.", flag: "🇬🇧", photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=90", status: "online", reward: 57700, topic: "Wildlife & Safari (+57,700 TZS)", initialMessages: [
+              { sender: "partner", text: "Hello! Jambo rafiki, nina hamu sana ya kujifunza Kiswahili leo." },
+              { sender: "partner", text: "Napenda kujua maneno ya wanyama pori na hifadhi za Tanzania." },
+              { sender: "partner", text: "Naomba unifundishe kuanzia salamu mpaka hadithi fupi." }
+          ]},
+          { id: 2, name: "Alexandro G.", flag: "🇮🇹", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=90", status: "online", reward: 35880, topic: "Tanzanian Food (+35,880 TZS)", initialMessages: [
+              { sender: "partner", text: "Ciao! Habari za leo rafiki yangu?" },
+              { sender: "partner", text: "Ningependa leo unifundishe jinsi ya kuongea Kiswahili kwenye chakula na migahawa." }
+          ]},
+          { id: 3, name: "Lucas M.", flag: "🇫🇷", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=90", status: "offline", reward: 63280, topic: "Business Swahili (+63,280 TZS)", initialMessages: [
+              { sender: "partner", text: "Bonjour! Nataka kufanya biashara Tanzania." },
+              { sender: "partner", text: "Tafadhali nisaidie misamiati ya biashara na masoko." }
+          ]},
+          { id: 4, name: "Sophia K.", flag: "🇩🇪", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=90", status: "online", reward: 48000, topic: "Swahili Grammar (+48,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hallo! Naitaji kujifunza sarufi na ngeli za Kiswahili." }
+          ]},
+          { id: 5, name: "Michael B.", flag: "🇺🇸", photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&auto=format&fit=crop&q=90", status: "online", reward: 52000, topic: "Coastal Culture (+52,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hi there! Tell me about Zanzibar and Swahili coastal traditions." }
+          ]},
+          { id: 6, name: "Elena R.", flag: "🇪🇸", photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&auto=format&fit=crop&q=90", status: "offline", reward: 39000, topic: "Swahili Proverbs (+39,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hola! Ningependa kujua methali na misemo ya Kiswahili." }
+          ]},
+          { id: 7, name: "David L.", flag: "🇨🇦", photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&auto=format&fit=crop&q=90", status: "online", reward: 45000, topic: "Mount Kilimanjaro (+45,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hello! Preparing to climb Kibo. Teach me mountain terms." }
+          ]},
+          { id: 8, name: "Anna S.", flag: "🇸🇪", photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&auto=format&fit=crop&q=90", status: "offline", reward: 41000, topic: "Everyday Greetings (+41,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hej! Let's practice daily conversational Swahili." }
+          ]},
+          { id: 9, name: "Marco V.", flag: "🇮🇹", photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=90", status: "online", reward: 46000, topic: "Music & Taarab (+46,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Ciao! I love Swahili music and poetry." }
+          ]},
+          { id: 10, name: "Chloe P.", flag: "🇦🇺", photo: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&auto=format&fit=crop&q=90", status: "online", reward: 53000, topic: "Travel & Tourism (+53,000 TZS)", initialMessages: [
+              { sender: "partner", text: "G'day! Teach me travel phrases for Tanzania." }
+          ]},
+          { id: 11, name: "Liam H.", flag: "🇬🇧", photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=90", status: "offline", reward: 49000, topic: "History of Kilwa (+49,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hello! Interested in East African coastal history." }
+          ]},
+          { id: 12, name: "Yuki T.", flag: "🇯🇵", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=90", status: "online", reward: 58000, topic: "Swahili Pronunciation (+58,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Konnichiwa! Help me pronounce Swahili vowels correctly." }
+          ]},
+          { id: 13, name: "Hans W.", flag: "🇩🇪", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=90", status: "offline", reward: 42000, topic: "Serengeti Migration (+42,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hallo! Tell me about the great wildebeest migration." }
+          ]},
+          { id: 14, name: "Camille D.", flag: "🇫🇷", photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=90", status: "online", reward: 50000, topic: "Swahili Literature (+50,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Bonjour! Let's discuss Swahili novels and poems." }
+          ]},
+          { id: 15, name: "Oliver N.", flag: "🇳🇴", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=90", status: "online", reward: 44000, topic: "Local Swahili Slang (+44,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hi! Teach me common Swahili slang and modern terms." }
+          ]},
+          { id: 16, name: "Beatrix F.", flag: "🇭🇺", photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&auto=format&fit=crop&q=90", status: "offline", reward: 47000, topic: "Swahili Cuisine (+47,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Szia! I want to learn cooking vocabulary in Swahili." }
+          ]},
+          { id: 17, name: "Carlos M.", flag: "🇪🇸", photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&auto=format&fit=crop&q=90", status: "online", reward: 38000, topic: "Swahili Numbers & Time (+38,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hola! How do counting and Swahili clock time work?" }
+          ]},
+          { id: 18, name: "Fatima Z.", flag: "🇦🇪", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=90", status: "online", reward: 55000, topic: "Swahili Arabic Influence (+55,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Asalam alaykum! Let's talk about Arabic loan words in Swahili." }
+          ]},
+          { id: 19, name: "Bruno K.", flag: "🇧🇷", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=90", status: "online", reward: 43000, topic: "Swahili Sports & Football (+43,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Salve! Let's talk about football and sports in Swahili." }
+          ]},
+          { id: 20, name: "Astrid E.", flag: "🇩🇰", photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&auto=format&fit=crop&q=90", status: "online", reward: 51000, topic: "Tanzanian Art & Crafts (+51,000 TZS)", initialMessages: [
+              { sender: "partner", text: "Hej! Tell me about Tingatinga paintings and local crafts." }
+          ]}
+      ];
 
-        // Render Page Data on Load
-        window.addEventListener('DOMContentLoaded', () => {
-            startLiveClock();
-            renderGuests();
-            renderPayouts();
-        });
+      function buildForeignerCard(user, fromDashboard = false) {
+          const isOnline = user.status === 'online';
+          const statusDot = isOnline 
+              ? '<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-green-500 border-2 border-cardBg"></span>' 
+              : '<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-gray-500 border-2 border-cardBg"></span>';
+          const statusText = isOnline ? '<span class="text-[10px] text-accentGold font-bold">Online</span>' : '<span class="text-[10px] text-gray-500">Offline</span>';
+          const openFn = fromDashboard ? `openForeignerChat(${user.id})` : `openChat(${user.id})`;
+          const clickAction = isOnline ? openFn : `alert('${user.name} yuko Offline kwa sasa. Tafadhali chagua aliye Online ili uanze kuchat.')`;
 
-        // Floating Customer Care Widget
-        function openCustomerCareWidget() {
-            window.open(`https://wa.me/255799223490?text=${encodeURIComponent('Habari Swahili Digital, naomba msaada wa kujisajili.')}`, '_blank');
-        }
+          return `
+              <div onclick="${clickAction}" class="bg-[#18120B] border border-borderCol hover:border-accentGold hover:bg-cardHover/50 rounded-xl p-3.5 cursor-pointer transition-all flex items-center gap-3">
+                  <div class="relative">
+                      <img src="${user.photo}" alt="${user.name}" class="w-11 h-11 rounded-full object-cover border border-accentGold/40 shadow-md">
+                      ${statusDot}
+                  </div>
+                  <div class="flex-1 min-w-0">
+                      <div class="flex justify-between items-center"><h4 class="text-sm font-bold text-white flex items-center gap-1.5 truncate">${user.name} <span class="text-base">${user.flag}</span></h4>${statusText}</div>
+                      <p class="text-xs text-gray-400 truncate mt-0.5">${user.topic}</p>
+                  </div>
+              </div>
+          `;
+      }
 
-        // Render Live Payouts Ticker
-        function renderPayouts() {
-            const container = document.getElementById('payoutsContainer');
-            if (!container) return;
+      // Wazungu 7 kwenye Dashboard juu ya Network Growth
+      function renderDashboardForeigners() {
+          const grid = document.getElementById('dashboard-foreigners-grid');
+          if (!grid) return;
+          grid.innerHTML = chatUsers.slice(0, 7).map(user => buildForeignerCard(user, true)).join('');
+      }
 
-            const doubleList = [...LIVE_PAYOUTS, ...LIVE_PAYOUTS];
-            container.innerHTML = doubleList.map(item => `
-                <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-dark/80 border border-amber-900/30 text-xs">
-                    <div class="flex items-center gap-2">
-                        <span class="text-[10px] font-bold uppercase bg-amber-900/40 text-amber-300 px-2 py-0.5 rounded border border-amber-700/40">
-                            ${item.provider}
-                        </span>
-                        <span class="font-bold text-gray-200">${item.name}</span>
-                    </div>
-                    <span class="font-black text-emerald-400">+${item.amount}</span>
-                </div>
-            `).join('');
-        }
+      function openForeignerChat(userId) {
+          switchTab('chat');
+          openChat(userId);
+      }
 
-        // Render Online Guest List
-        function renderGuests() {
-            const container = document.getElementById('guestListContainer');
-            if (!container) return;
-            
-            container.innerHTML = GUEST_DATA.map(g => `
-                <div class="glass-card rounded-2xl p-4 border border-amber-900/40 hover:border-amber-700/60 transition duration-300 shadow-lg relative overflow-hidden">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center space-x-3">
-                            <div class="relative">
-                                <img src="${g.avatar}" alt="${g.name}" class="w-12 h-12 rounded-full object-cover border-2 border-amber-500/50">
-                                <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-brand-dark pulse-dot"></span>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-extrabold text-white text-base">${g.name}</h3>
-                                    <span class="text-sm">${g.country}</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-xs text-amber-300/80 font-medium mt-0.5">
-                                    <span class="flex items-center gap-1 text-emerald-400">
-                                        <i class="fa-solid fa-circle text-[8px]"></i> Online
-                                    </span>
-                                    <span>•</span>
-                                    <span class="text-yellow-400 font-bold"><i class="fa-solid fa-star text-[10px]"></i> ${g.rating}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      function renderChatUsers() {
+          const grid = document.getElementById('chat-users-grid');
+          if (!grid) return;
+          grid.innerHTML = chatUsers.map(user => buildForeignerCard(user, false)).join('');
+      }
 
-                    <div class="grid grid-cols-2 gap-2 my-3 text-xs">
-                        <div class="bg-brand-dark/60 p-2.5 rounded-xl border border-amber-900/30">
-                            <span class="text-[10px] text-gray-400 uppercase font-semibold block mb-0.5">
-                                <i class="fa-regular fa-clock text-amber-400 mr-1"></i>MUDA WA CHAT
-                            </span>
-                            <span class="font-extrabold text-emerald-400">${g.time}</span>
-                        </div>
-                        <div class="bg-brand-dark/60 p-2.5 rounded-xl border border-amber-900/30">
-                            <span class="text-[10px] text-gray-400 uppercase font-semibold block mb-0.5">
-                                <i class="fa-solid fa-book-open text-blue-400 mr-1"></i>TOPIC
-                            </span>
-                            <span class="font-extrabold text-white truncate block">${g.topic}</span>
-                        </div>
-                    </div>
+      document.addEventListener('DOMContentLoaded', () => {
+          renderDashboardForeigners();
+          renderChatUsers();
+          updateBroadcastMessage();
+          renderWithdrawHistory();
+          updateLiveDateTime();
+      });
 
-                    <div class="flex items-center justify-between bg-gradient-to-r from-amber-950/60 to-brand-dark p-3 rounded-xl border border-amber-800/40 mb-3">
-                        <span class="font-black text-amber-400 text-lg">TZS ${g.tzs}</span>
-                        <span class="text-xs text-gray-400 font-medium">= USD ${g.usd}</span>
-                    </div>
+      function updateBroadcastMessage() {
+          const annEl = document.getElementById('dynamic-announcement');
+          const dayEl = document.getElementById('current-day-label');
+          const days = ["Jumapili", "Jumatatu", "Jumanne", "Jumatano", "Alhamisi", "Ijumaa", "Jumamosi"];
+          const today = days[new Date().getDay()];
+          if (dayEl) dayEl.innerText = `Leo: ${today}`;
+          if (annEl) {
+              if (today === "Jumatatu") {
+                  annEl.innerText = "📢 RATIBA YA LEO: JUMATATU (YouTube Tasks & Articles)";
+              } else if (today === "Jumanne") {
+                  annEl.innerText = "📢 RATIBA YA LEO: JUMANNE (TikTok Tasks & Video Highlights)";
+              } else if (today === "Jumatano") {
+                  annEl.innerText = "📢 RATIBA YA LEO: JUMATANO (Chat na Wageni)";
+              } else if (today === "Alhamisi") {
+                  annEl.innerText = "📢 RATIBA YA LEO: ALHAMISI (Trivia Quiz & Maswali ya Lugha)";
+              } else if (today === "Ijumaa") {
+                  annEl.innerText = "📢 RATIBA YA LEO: IJUMAA (WhatsApp Status & Ad Watching)";
+              } else {
+                  annEl.innerText = "📢 RATIBA YA WEEKEND: Spin Wheel & Withdraw Funds";
+              }
+          }
+      }
 
-                    <button onclick="openChatModal(${g.id})" class="w-full bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 text-white font-black text-xs py-3 px-4 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 border border-purple-400/30">
-                        <i class="fa-regular fa-comments text-sm"></i>
-                        <span>START CHAT</span>
-                    </button>
-                </div>
-            `).join('');
+      function startChatTimer() {
+          clearInterval(chatTimerInterval);
+          timerSeconds = 60;
+          rewardGiven = false;
+          const timerDisplay = document.getElementById('chat-timer-display');
+          
+          chatTimerInterval = setInterval(() => {
+              timerSeconds--;
+              let mins = Math.floor(timerSeconds / 60);
+              let secs = timerSeconds % 60;
+              if (timerDisplay) {
+                  timerDisplay.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+              }
 
-            const countBadge = document.getElementById('onlineCountBadge');
-            if (countBadge) countBadge.innerText = `50+ Active Now`;
-        }
+              if (timerSeconds <= 0) {
+                  clearInterval(chatTimerInterval);
+                  if (currentActiveUser && !rewardGiven) {
+                      rewardGiven = true;
+                      triggerChatRewardNotification(currentActiveUser);
+                  }
+              }
+          }, 1000);
+      }
 
-        // Withdrawal Modal Logic with Steps
-        function openWithdrawModal() {
-            document.getElementById('withdrawStep1').classList.remove('hidden');
-            document.getElementById('withdrawStep2').classList.add('hidden');
-            
-            document.getElementById('modalCurrentBalance').innerText = balanceTotal.toLocaleString();
+      function triggerChatRewardNotification(user) {
+          const msgContainer = document.getElementById('chat-messages');
+          if (!msgContainer) return;
 
-            const modal = document.getElementById('withdrawModal');
-            const box = document.getElementById('withdrawModalBox');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                box.classList.remove('scale-95');
-                box.classList.add('scale-100');
-            }, 10);
-        }
+          const rewardFormatted = user.reward.toLocaleString(undefined, {minimumFractionDigits: 2});
+          
+          netIncome += user.reward;
+          availableBalance += user.reward;
+          taskEarnings.chat += user.reward;
+          updateBalanceDisplays();
 
-        function submitWithdrawRequest() {
-            // Switch to step 2 informing registration required
-            document.getElementById('withdrawStep1').classList.add('hidden');
-            document.getElementById('withdrawStep2').classList.remove('hidden');
-        }
+          msgContainer.innerHTML += `
+              <div class="p-3 bg-gradient-to-r from-amber-900/40 to-cardBg border border-accentGold rounded-xl text-white space-y-2 shadow-xl my-2">
+                  <div class="flex items-center gap-2 text-accentGold font-bold text-xs">
+                      <i class="fa-solid fa-circle-check text-green-400"></i> Malipo Yamewasilishwa!
+                  </div>
+                  <p class="text-xs text-gray-200">Umefanikiwa kuongea na <b>${user.name}</b> na kupata <b>${rewardFormatted} TZS</b>. Ili kuweza kupata na kuhifadhi pesa hii kwenye akaunti yako, tafadhali tengeneza akaunti sasa.</p>
+                  <button onclick="openRegisterModal()" class="w-full bg-accentGold text-darkBg font-bold py-2 rounded-lg text-xs hover:bg-opacity-90 transition-all shadow-md flex items-center justify-center gap-2">
+                      <i class="fa-solid fa-user-plus"></i> Create Account to Earn ${rewardFormatted} TZS →
+                  </button>
+              </div>
+          `;
+          msgContainer.scrollTop = msgContainer.scrollHeight;
+      }
 
-        function closeWithdrawModal() {
-            const modal = document.getElementById('withdrawModal');
-            modal.classList.add('hidden');
-        }
+      function openChat(userId) {
+          const user = chatUsers.find(u => u.id === userId);
+          if (!user) return;
+          currentActiveUser = user;
 
-        // Chat Simulation Modal Logic with 1-Minute Live Timer
-        function openChatModal(guestId) {
-            activeGuest = GUEST_DATA.find(g => g.id === guestId);
-            if (!activeGuest) return;
+          const box = document.getElementById('active-chat-box');
+          box.classList.remove('hidden');
+          box.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-            document.getElementById('chatAvatar').src = activeGuest.avatar;
-            document.getElementById('chatName').innerText = `${activeGuest.name} ${activeGuest.country}`;
-            document.getElementById('chatTopic').innerText = activeGuest.topic;
+          document.getElementById('chat-with-name').innerText = `Chat with ${user.name} ${user.flag}`;
+          document.getElementById('active-chat-avatar').innerHTML = `<img src="${user.photo}" alt="${user.name}" class="w-full h-full object-cover rounded-full">`;
+          document.getElementById('active-chat-status').innerText = user.status.toUpperCase();
 
-            const chatMessages = document.getElementById('chatMessages');
-            chatMessages.innerHTML = '';
+          const msgContainer = document.getElementById('chat-messages');
+          msgContainer.innerHTML = '';
+          
+          user.initialMessages.forEach(msg => {
+              if(msg.sender === 'partner') {
+                  msgContainer.innerHTML += `<div class="p-2.5 bg-cardHover rounded-lg text-white max-w-[85%]"><b>${user.name}:</b> ${msg.text}</div>`;
+              } else {
+                  msgContainer.innerHTML += `<div class="p-2.5 bg-accentGold/10 border border-accentGold/20 rounded-lg text-right text-accentGold ml-auto max-w-[85%]"><b>You:</b> ${msg.text}</div>`;
+              }
+          });
+          msgContainer.scrollTop = msgContainer.scrollHeight;
 
-            // Start 1 minute countdown timer
-            secondsRemaining = 60;
-            updateTimerDisplay();
+          startChatTimer();
+      }
 
-            clearInterval(chatTimerInterval);
-            chatTimerInterval = setInterval(() => {
-                secondsRemaining--;
-                updateTimerDisplay();
+      function closeChat() {
+          clearInterval(chatTimerInterval);
+          document.getElementById('active-chat-box').classList.add('hidden');
+          currentActiveUser = null;
+      }
 
-                if (secondsRemaining <= 0) {
-                    clearInterval(chatTimerInterval);
-                    completeChatSession();
-                }
-            }, 1000);
+      function sendChatMessage() {
+          const input = document.getElementById('chat-input');
+          if (!input.value.trim() || !currentActiveUser) return;
+          
+          const msgContainer = document.getElementById('chat-messages');
+          msgContainer.innerHTML += `<div class="p-2.5 bg-accentGold/10 border border-accentGold/20 rounded-lg text-right text-accentGold ml-auto max-w-[85%]"><b>You:</b> ${input.value}</div>`;
+          const userText = input.value;
+          input.value = '';
+          msgContainer.scrollTop = msgContainer.scrollHeight;
 
-            // Populate initial incoming messages
-            activeGuest.initialMsgs.forEach((msgText, idx) => {
-                setTimeout(() => {
-                    appendMessage(msgText, 'incoming');
-                }, idx * 400);
-            });
+          const typingInd = document.getElementById('typing-indicator');
+          document.getElementById('typing-name').innerText = currentActiveUser.name;
+          typingInd.classList.remove('hidden');
 
-            document.getElementById('chatModal').classList.remove('hidden');
-        }
+          setTimeout(() => {
+              typingInd.classList.add('hidden');
+              msgContainer.innerHTML += `<div class="p-2.5 bg-cardHover rounded-lg text-white max-w-[85%]"><b>${currentActiveUser.name}:</b> Asante sana rafiki yangu kwa ujumbe wako ("${userText}"). Nimefurahi sana kujifunza zaidi.</div>`;
+              msgContainer.scrollTop = msgContainer.scrollHeight;
+          }, 1500);
+      }
 
-        function updateTimerDisplay() {
-            const timerEl = document.getElementById('chatTimer');
-            if (!timerEl) return;
-            const mins = Math.floor(secondsRemaining / 60);
-            const secs = secondsRemaining % 60;
-            timerEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
+      function handleChatKeyPress(e) {
+          if (e.key === 'Enter') {
+              sendChatMessage();
+          }
+      }
 
-        function completeChatSession() {
-            if (!activeGuest) return;
+      function completeTask(taskKey, rewardAmount) {
+          netIncome += rewardAmount;
+          availableBalance += rewardAmount;
+          taskEarnings[taskKey] += rewardAmount;
+          updateBalanceDisplays();
+          
+          const rewardFormatted = rewardAmount.toLocaleString(undefined, {minimumFractionDigits: 2});
+          
+          const taskContainer = document.getElementById(`tab-content-${taskKey}`);
+          if (taskContainer) {
+              taskContainer.innerHTML += `
+                  <div class="p-4 bg-gradient-to-r from-amber-900/40 to-cardBg border border-accentGold rounded-xl text-white space-y-3 shadow-xl my-4 text-left">
+                      <div class="flex items-center gap-2 text-accentGold font-bold text-sm">
+                          <i class="fa-solid fa-circle-check text-green-400"></i> Malipo Yamewasilishwa!
+                      </div>
+                      <p class="text-xs text-gray-200">Umefanikiwa kukamilisha task hii na kupata <b>${rewardFormatted} TZS</b>. Ili kuweza kupata na kuhifadhi pesa hii kwenye akaunti yako, tafadhali tengeneza akaunti sasa.</p>
+                      <button onclick="openRegisterModal()" class="w-full bg-accentGold text-darkBg font-bold py-2.5 rounded-lg text-xs hover:bg-opacity-90 transition-all shadow-md flex items-center justify-center gap-2">
+                          <i class="fa-solid fa-user-plus"></i> Create Account to Earn ${rewardFormatted} TZS →
+                      </button>
+                  </div>
+              `;
+          }
+      }
 
-            // Parse numeric value from TZS string
-            const earnedAmount = parseInt(activeGuest.tzs.replace(/,/g, '')) || 37700;
+      function switchAuthTab(tab) {
+          const loginForm = document.getElementById('login-form');
+          const registerForm = document.getElementById('register-form');
+          const loginBtn = document.getElementById('tab-login-btn');
+          const registerBtn = document.getElementById('tab-register-btn');
+          const paymentPage = document.getElementById('payment-page');
+          const authContainer = document.getElementById('auth-container');
 
-            netProfitTotal += earnedAmount;
-            balanceTotal += earnedAmount;
+          if (paymentPage) paymentPage.classList.add('hidden');
+          if (authContainer) authContainer.classList.remove('hidden');
 
-            // Update UI Counters
-            document.getElementById('netProfitVal').innerText = netProfitTotal.toLocaleString();
-            document.getElementById('balanceVal').innerText = balanceTotal.toLocaleString();
+          if (loginForm && registerForm && loginBtn && registerBtn) {
+              const isLogin = tab === 'login';
+              loginForm.classList.toggle('hidden', !isLogin);
+              registerForm.classList.toggle('hidden', isLogin);
 
-            appendMessage(`⏰ Muda wa dakika 1 umekamilika! Hongera, umepokea TZS ${activeGuest.tzs}!`, 'incoming');
+              loginBtn.className = isLogin
+                  ? 'auth-tab flex-1 pb-3 text-sm font-semibold text-accentGold border-b-2 border-amber-600/40 transition-all'
+                  : 'auth-tab flex-1 pb-3 text-sm font-medium text-gray-400 hover:text-white transition-all';
+              registerBtn.className = isLogin
+                  ? 'auth-tab flex-1 pb-3 text-sm font-medium text-gray-400 hover:text-white transition-all'
+                  : 'auth-tab flex-1 pb-3 text-sm font-semibold text-accentGold border-b-2 border-amber-600/40 transition-all';
+          }
+      }
 
-            setTimeout(() => {
-                closeChatModal();
-                openWithdrawModal();
-            }, 1500);
-        }
+      function toggleRegisterButton() {
+          const checkbox = document.getElementById('reg-privacy-check');
+          const btn = document.getElementById('reg-submit-btn');
+          if (checkbox && btn) {
+              if (checkbox.checked) {
+                  btn.disabled = false;
+                  btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                  btn.classList.add('hover:bg-opacity-90');
+              } else {
+                  btn.disabled = true;
+                  btn.classList.add('opacity-50', 'cursor-not-allowed');
+                  btn.classList.remove('hover:bg-opacity-90');
+              }
+          }
+      }
 
-        function closeChatModal() {
-            clearInterval(chatTimerInterval);
-            document.getElementById('chatModal').classList.add('hidden');
-            activeGuest = null;
-        }
+      function handleLogin(e) {
+          e.preventDefault();
+          const user = document.getElementById('login-user').value.trim() || 'BROWN255';
+          const welcome = document.getElementById('user-welcome-display');
+          if (welcome) welcome.innerText = `Welcome back, ${user}!`;
+          closeAuthModal();
+      }
 
-        function appendMessage(text, type) {
-            const container = document.getElementById('chatMessages');
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `flex ${type === 'outgoing' ? 'justify-end' : 'justify-start'} mb-2`;
+      function handleRegister(e) {
+          e.preventDefault();
+          const privacyCheck = document.getElementById('reg-privacy-check');
+          if (privacyCheck && !privacyCheck.checked) {
+              alert('Tafadhali kubali Privacy Policy kwanza ili kuendelea.');
+              return;
+          }
+          const pass = document.getElementById('reg-pass').value;
+          const confirmPass = document.getElementById('reg-pass-confirm').value;
+          if (pass !== confirmPass) {
+              alert('Passwords do not match! Please verify your password.');
+              return;
+          }
+          const user = document.getElementById('reg-user').value.trim() || 'BROWN255';
+          const welcome = document.getElementById('user-welcome-display');
+          if (welcome) welcome.innerText = `Welcome back, ${user}!`;
+          
+          const authContainer = document.getElementById('auth-container');
+          const paymentPage = document.getElementById('payment-page');
+          if (authContainer) authContainer.classList.add('hidden');
+          if (paymentPage) paymentPage.classList.remove('hidden');
+      }
 
-            const bubble = document.createElement('div');
-            bubble.className = type === 'outgoing' 
-                ? 'bg-indigo-600 text-white rounded-2xl rounded-tr-none px-3.5 py-2 max-w-[80%] shadow-md'
-                : 'bg-brand-card text-gray-200 border border-amber-900/50 rounded-2xl rounded-tl-none px-3.5 py-2 max-w-[80%] shadow-md';
-            
-            bubble.innerText = text;
-            msgDiv.appendChild(bubble);
-            container.appendChild(msgDiv);
-            container.scrollTop = container.scrollHeight;
-        }
+      function toggleSidebar() {
+          const sidebar = document.getElementById('sidebar');
+          if (sidebar) sidebar.classList.toggle('hidden');
+      }
 
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') {
-                sendChatMessage();
-            }
-        }
+      function copyReferralLink() {
+          const referralField = document.getElementById('referral-link');
+          if (!referralField) return;
+          const link = referralField.value;
+          const copyButton = document.getElementById('copy-referral-link');
+          try {
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                  navigator.clipboard.writeText(link);
+              } else {
+                  referralField.select();
+                  document.execCommand('copy');
+              }
+              if (copyButton) {
+                  const originalText = copyButton.innerText;
+                  copyButton.innerText = 'Copied!';
+                  copyButton.disabled = true;
+                  setTimeout(() => {
+                      copyButton.innerText = originalText;
+                      copyButton.disabled = false;
+                  }, 1200);
+              }
+          } catch (error) {
+              alert('Unable to copy referral link. Please copy it manually.');
+          }
+      }
 
-        function sendChatMessage() {
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            if (!text) return;
+      function switchTab(tabName) {
+          const tabs = ['dashboard', 'chat', 'tiktok', 'youtube', 'whatsapp', 'ads', 'trivia', 'translate', 'write', 'spin', 'ebooks', 'community', 'movies', 'trading', 'marketplace', 'withdraw'];
+          tabs.forEach(t => {
+              const el = document.getElementById(`tab-content-${t}`);
+              if (el) el.classList.add('hidden');
+          });
+          const target = document.getElementById(`tab-content-${tabName}`);
+          if (target) target.classList.remove('hidden');
 
-            appendMessage(text, 'outgoing');
-            input.value = '';
+          const sidebar = document.getElementById('sidebar');
+          if (sidebar) sidebar.classList.add('hidden');
+      }
 
-            // Simulate typing and response
-            const typingIndicator = document.getElementById('typingIndicator');
-            typingIndicator.classList.remove('hidden');
+      function toggleAccordion(id) {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle('hidden');
+      }
 
-            setTimeout(() => {
-                typingIndicator.classList.add('hidden');
-                
-                // Generic response
-                const responses = [
-                    "Haha okay okay, I'll write that down! 📝",
-                    "Asante sana! How do I pronounce that correctly?",
-                    "That is very helpful! Can you teach me one more sentence?",
-                    "Karibu! Thanks for teaching me Swahili today! 🌟"
-                ];
-                const randomResp = responses[Math.floor(Math.random() * responses.length)];
-                appendMessage(randomResp, 'incoming');
+      function answerTrivia(isCorrect) {
+          if (isCorrect) {
+              alert('Hongera! Umepatia swali (+55,000 TZS zimeongezeka kwenye net income na salio).');
+              netIncome += 55000;
+              availableBalance += 55000;
+              taskEarnings.trivia += 55000;
+              updateBalanceDisplays();
+              switchTab('dashboard');
+          } else {
+              alert('Si sahihi! Jaribu tena kesho.');
+          }
+      }
 
-                // Auto prompt registration after 1 simulated response
-                setTimeout(() => {
-                    openWithdrawModal();
-                }, 2000);
+      function triggerSpinWheel() {
+          const resEl = document.getElementById('spin-result');
+          const rewards = [30000, 55000, 25000, 5000, 100000];
+          const won = rewards[Math.floor(Math.random() * rewards.length)];
+          resEl.innerText = `🎉 Umeshinda ${won.toLocaleString()} TZS kupitia Spin Wheel!`;
+          netIncome += won;
+          availableBalance += won;
+          updateBalanceDisplays();
+      }
 
-            }, 1500);
-        }
-    </script>
+      function submitWithdrawal() {
+          const amt = parseFloat(document.getElementById('withdraw-input-amount').value) || 0;
+          if (amt <= 0 || amt > availableBalance) {
+              alert('Kiasi cha kutoa kimezidi salio lako lililopo au si sahihi!');
+              return;
+          }
+          const network = document.getElementById('withdraw-network').value;
+          const phone = document.getElementById('withdraw-phone').value.trim();
+          const sourceType = document.getElementById('withdraw-source-type').value;
+          
+          availableBalance -= amt;
+          totalWithdrawn += amt;
+          
+          withdrawHistory.unshift({
+              amount: amt,
+              network: network,
+              phone: phone,
+              sourceType: sourceType,
+              date: new Date().toLocaleString(),
+              status: "pending"
+          });
+          
+          updateBalanceDisplays();
+          renderWithdrawHistory();
+          document.getElementById('withdraw-input-amount').value = '';
+          alert('Ombi lako la kutoa pesa limewasilishwa kikamilifu create account to APPROVED!');
+      }
+  </script>
 </body>
 </html>
