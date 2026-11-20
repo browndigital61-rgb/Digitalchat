@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <!-- Vercel Speed Insights -->
+<script>
+  window.si = window.si || function () {
+    (window.siq = window.siq || []).push(arguments);
+  };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swahili Digital - Pata Fursa Mtandaoni</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1e110c',     /* Deep rich warm brown background */
+                            card: '#2c1a14',     /* Slightly lighter brown card */
+                            accent: '#3d251d',   /* Accent brown highlight */
+                            border: '#4a2e24',   /* Subtle brown border */
+                            primary: '#8b4513',  /* Rich saddle brown */
+                            gold: '#d97706',     /* Gold/Amber highlight */
+                            neonBlue: '#3b82f6',
+                            neonOrange: '#f97316'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1a0e0a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(139, 69, 19, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(61, 37, 29, 0.4) 0px, transparent 50%);
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Glassmorphism effects */
+        .glass-card {
+            background: rgba(44, 26, 20, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-nav {
+            background: rgba(30, 17, 12, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.4);
+        }
+
+        /* Live payouts auto marquee ticker animation */
+        @keyframes marquee {
+            0% { transform: translateY(0%); }
+            100% { transform: translateY(-50%); }
+        }
+
+        .animate-marquee {
+            animation: marquee 16s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e110c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a2e24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8b4513;
+        }
+
+        /* Pulse glowing dot */
+        .pulse-dot {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+    </style>
+</head>
+<body class="pb-24 antialiased">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 glass-nav px-4 py-3 shadow-lg">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-700 via-yellow-600 to-amber-500 flex items-center justify-center text-white font-black text-xl shadow-md border border-amber-400/30">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
+                        SWAHILI <span class="text-amber-500 font-black">DIGITAL TZ</span>
+                    </h1>
+                    <p class="text-[10px] text-amber-200/70 font-medium -mt-1">Teach Swahili • Earn Rewards</p>
+                </div>
+            </div>
+
+            <button id="installAppBtn" onclick="installAppPrompt()" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border border-indigo-400/30">
+                <span>DOWNLOAD APP</span>
+                <i class="fa-solid fa-download text-xs"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-4xl mx-auto px-4 pt-5 space-y-6">
+
+        <!-- LIVE CLOCK & DATE BAR -->
+        <div class="bg-amber-950/60 border border-amber-800/50 rounded-2xl p-3.5 shadow-md flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <i class="fa-regular fa-clock text-amber-400 text-lg"></i>
+                <div>
+                    <div id="liveDayDate" class="text-xs sm:text-sm font-extrabold text-white capitalize">Inapakia tarehe...</div>
+                    <div class="text-[10px] text-amber-300/80 font-medium">Muda wa Live Mtandaoni</div>
+                </div>
+            </div>
+            <div id="liveTime" class="text-xs sm:text-sm font-black bg-brand-dark px-3 py-1.5 rounded-xl border border-amber-900/60 text-emerald-400 tracking-wider">
+                00:00:00
+            </div>
+        </div>
+
+        <!-- BIG REGISTRATION BANNER BUTTON -->
+        <div class="transform transition hover:scale-[1.01] active:scale-[0.99]">
+            <button onclick="triggerRegisterRedirect()" class="w-full bg-gradient-to-r from-purple-700 via-indigo-700 to-purple-800 hover:from-purple-600 hover:to-indigo-600 text-white font-extrabold text-base sm:text-lg py-4 px-6 rounded-2xl shadow-2xl border border-purple-400/40 tracking-wider flex items-center justify-center gap-3 group">
+                <i class="fa-solid fa-hand-pointer text-yellow-400 text-xl animate-bounce"></i>
+                <span>GUSA HAPA KUJISAJILI</span>
+                <i class="fa-solid fa-chevron-right text-purple-300 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+        </div>
+
+        <!-- DASHBOARD STATS GRID -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            
+            <!-- NET PROFIT CARD -->
+            <div class="glass-card rounded-2xl p-4 relative overflow-hidden border-l-4 border-l-emerald-500 flex flex-col justify-between">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">NET PROFIT</span>
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                        <i class="fa-solid fa-chart-line text-sm"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-2xl font-black text-white tracking-tight">TZS <span id="netProfitVal">0</span></div>
+                    <p class="text-[10px] text-gray-400 mt-1">Faida halisi iliyotengenezwa</p>
+                </div>
+            </div>
+
+            <!-- BALANCE CARD -->
+            <div class="glass-card rounded-2xl p-4 relative overflow-hidden border-l-4 border-l-blue-500 flex flex-col justify-between">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-400">BALANCE</span>
+                    <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                        <i class="fa-solid fa-wallet text-sm"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-2xl font-black text-white tracking-tight">TZS <span id="balanceVal">0</span></div>
+                    <button onclick="openWithdrawModal()" class="mt-3 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2 px-3 rounded-xl transition duration-200 shadow-md flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        <span>Toa Pesa</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- WITHDRAWAL CARD -->
+            <div class="glass-card rounded-2xl p-4 relative overflow-hidden border-l-4 border-l-orange-500 flex flex-col justify-between">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-orange-400">WITHDRAWAL</span>
+                    <div class="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center">
+                        <i class="fa-solid fa-download text-sm"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-2xl font-black text-white tracking-tight">TZS <span id="withdrawVal">0</span></div>
+                    <button onclick="openWithdrawModal()" class="mt-3 w-full bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs py-2 px-3 rounded-xl transition duration-200 shadow-md flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>History</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAYMENT METHOD INFO NOTE -->
+        <div class="bg-amber-950/40 border border-amber-800/40 rounded-xl p-3 flex items-center gap-3 text-xs text-amber-200/90 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-400 text-base flex-shrink-0"></i>
+            <span>Malipo hufanyika kupitia <strong>M-Pesa</strong>, <strong>Airtel</strong>, <strong>Halopesa</strong> na <strong>Mix by Yas</strong> ndani ya dakika chache.</span>
+        </div>
+
+        <!-- ONLINE GUESTS SECTION -->
+        <div class="space-y-4 pt-2">
+            <!-- Header with Active counts and Total Registered Foreigners Banner -->
+            <div class="bg-gradient-to-r from-amber-950/80 via-brand-card to-amber-950/80 p-3.5 rounded-2xl border border-amber-800/40 shadow-md space-y-2">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-emerald-500 pulse-dot inline-block"></span>
+                        <h2 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-200">
+                            WAZUNGU WALIOPO ONLINE
+                        </h2>
+                    </div>
+                    <span class="text-xs font-black bg-emerald-950 text-emerald-400 border border-emerald-700/60 px-3 py-1 rounded-full shadow-inner" id="onlineCountBadge">
+                        50+ Active Now
+                    </span>
+                </div>
+                
+                <div class="flex items-center justify-between pt-1 border-t border-amber-900/40 text-[11px] text-amber-200/90 font-medium">
+                    <span class="flex items-center gap-1">
+                        <i class="fa-solid fa-earth-americas text-amber-400"></i>
+                        <span>Wazungu Wote Waliopo Mtandaoni: <strong class="text-white font-extrabold text-xs">5,000+</strong></span>
+                    </span>
+                    <span class="text-emerald-400 font-bold"><i class="fa-solid fa-users text-[10px]"></i> 3,480 Active Learners</span>
+                </div>
+            </div>
+
+            <!-- GUEST CARDS LIST CONTAINER -->
+            <div class="space-y-4" id="guestListContainer">
+                <!-- Dynamically generated via JavaScript -->
+            </div>
+        </div>
+
+        <!-- LIVE PAYOUTS TICKER SECTION -->
+        <div class="space-y-3 pt-4">
+            <div class="flex items-center justify-between">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-gray-300 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    LIVE PAYOUTS — Miamala ya watu wanao toa pesa.
+                </span>
+                <span class="text-[10px] text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/40">● Live</span>
+            </div>
+
+            <div class="overflow-hidden rounded-2xl glass-card p-2 border border-amber-900/50 max-h-48 relative">
+                <div id="payoutsContainer" class="space-y-2 animate-marquee">
+                    <!-- Dynamic live payouts list -->
+                </div>
+            </div>
+        </div>
+
+        <!-- JOIN NOW PROMO SECTION -->
+        <div class="glass-card rounded-2xl p-6 border-2 border-purple-600/40 text-center space-y-4 relative overflow-hidden bg-gradient-to-br from-brand-card via-purple-950/30 to-brand-card">
+            <span class="text-[10px] font-black uppercase tracking-widest text-purple-300 bg-purple-950/80 px-3 py-1 rounded-full border border-purple-700/50">JIUNGE SASA</span>
+            <h3 class="text-xl font-black text-white">Anza kupata <span class="text-yellow-400">pesa leo.</span></h3>
+            <p class="text-xs text-gray-300 leading-relaxed max-w-lg mx-auto">
+                Jisajili kwa mtaji wa <strong>16,000 TZS</strong> na uanze kulipwa kwa kuwafundisha wazungu Kiswahili hapa Swahili Digital TZ.
+            </p>
+            <button onclick="triggerRegisterRedirect()" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-extrabold text-sm py-3.5 px-8 rounded-xl shadow-xl transition duration-200 transform hover:scale-105 border border-purple-400/40 inline-flex items-center gap-2">
+                <span>Jisajili sasa</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <div class="text-[11px] text-amber-300/80 font-medium pt-1">
+                <i class="fa-solid fa-comment-sms text-amber-400 mr-1"></i> SMS Msaada: <strong>0756501819</strong>
+            </div>
+        </div>
+
+        <!-- ABOUT & FOOTER SECTION -->
+        <footer class="glass-card rounded-2xl p-6 border border-amber-900/40 space-y-6 text-xs text-gray-300">
+            <div>
+                <h4 class="text-xs font-black uppercase text-amber-400 tracking-wider mb-2">ABOUT US</h4>
+                <h3 class="text-base font-extrabold text-white mb-2">Kuhusu Swahili Digital TZ</h3>
+                <p class="leading-relaxed text-gray-300">
+                    Swahili Digital TZ ni jukwaa la Kitanzania linalowaunganisha Watanzania na wageni kutoka sehemu mbalimbali duniani wanaotaka kujifunza Kiswahili. Kupitia mazungumzo ya moja kwa moja, unawafundisha wageni lugha wetu na kupata zawadi kwa kila mazungumzo unayokamilisha.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-gray-300 border-t border-amber-900/40 pt-4">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Dhamira yetu</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-lock text-emerald-400"></i> Usalama</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-user-shield text-emerald-400"></i> Sera ya Faragha</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-file-contract text-emerald-400"></i> Masharti ya Matumizi</div>
+            </div>
+
+            <div class="border-t border-amber-900/40 pt-4 space-y-2">
+                <h5 class="font-bold text-white uppercase text-[11px]">Msaada kwa wateja</h5>
+                <p class="flex items-center gap-2 text-gray-300">
+                    <i class="fa-solid fa-phone text-emerald-400"></i> Normal SMS: <strong>0756501819</strong>
+                </p>
+                <p class="flex items-center gap-2 text-gray-300">
+                    <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp Support: <strong>0799223490</strong>
+                </p>
+                <p class="flex items-center gap-2 text-gray-300">
+                    <i class="fa-solid fa-envelope text-amber-400"></i> Email: <strong>browniedigital@gmail.com</strong>
+                </p>
+            </div>
+
+            <!-- AUDIO GUIDE PLAYER WIDGET -->
+            <div class="border-t border-amber-900/40 pt-5">
+                <div class="bg-gradient-to-r from-amber-950 via-brand-dark to-amber-950 p-4 rounded-2xl border border-amber-600/50 shadow-xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-base">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-extrabold text-white">MWONGOZO WA KUJISAJILI</h5>
+                                <p class="text-[10px] text-amber-300/80">Soma maelekezo ya jinsi ya kujiunga na kuanza kazi</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] font-bold uppercase bg-amber-900/60 text-amber-300 px-2 py-0.5 rounded border border-amber-700/50">Maelekezo</span>
+                    </div>
+
+                    <!-- Voice Script Preview Text -->
+                    <div class="bg-brand-dark/90 p-3 rounded-xl border border-amber-900/40 text-[11px] italic text-gray-300 leading-relaxed">
+                        "Karibu Swahili Digital TZ. Hapa nitakuelekeza jinsi ya kujiunga na kupata akaunti yako na kuweza kufanya kazi. Kabla ya yote, kabla ya kuweza kuchat, basi itabidi uweze kutengeneza akaunti. Utaigusa hapa kwenye sehemu ya kujisajili ili uweze kutengeneza akaunti yako. Na ili akaunti yako iwe active na uweze kuanza kuchat na kulipwa, itahitajika ulipie kiasi cha shilingi elfu kumi na sita{16,000} kama activation fee ya mtaji wa kuweza kujiunga na upate Account yako."
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-amber-900/40 pt-4 text-center text-[11px] text-gray-400 space-y-1">
+                <p>© 2026 Swahili Digital TZ. All Rights Reserved.</p>
+                <p class="font-extrabold text-amber-500 tracking-widest uppercase">BROWNIE TECH</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- FLOATING CUSTOMER CARE BUTTON -->
+    <button onclick="openCustomerCareWidget()" class="fixed bottom-5 right-5 z-40 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-emerald-400/40 transition hover:scale-105 active:scale-95">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Customer care</span>
+    </button>
+
+    <!-- WITHDRAWAL MODAL -->
+    <div id="withdrawModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div id="withdrawModalBox" class="glass-card w-full max-w-md rounded-3xl p-6 border border-amber-600/40 shadow-2xl space-y-5 transition-transform transform scale-95">
+            <!-- Step 1: Input -->
+            <div id="withdrawStep1" class="space-y-4">
+                <div class="flex items-center justify-between border-b border-amber-900/40 pb-3">
+                    <h3 class="font-extrabold text-white text-base flex items-center gap-2">
+                        <i class="fa-solid fa-money-bill-transfer text-emerald-400"></i> TOA PESA
+                    </h3>
+                    <button onclick="closeWithdrawModal()" class="text-gray-400 hover:text-white p-1">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <div class="bg-brand-dark/80 p-3.5 rounded-2xl border border-amber-900/40 space-y-1">
+                    <span class="text-[10px] text-gray-400 uppercase font-semibold">Salio Linaloweza Kutolewa</span>
+                    <div class="text-xl font-black text-amber-400">TZS <span id="modalCurrentBalance">0</span></div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-gray-300">Ingiza Kiasi Unachotaka Kutoa (TZS):</label>
+                    <input type="number" placeholder="Mfano: 37700" class="w-full bg-brand-dark border border-amber-800/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-gray-300">Chagua Mtandao wa Malipo:</label>
+                    <select class="w-full bg-brand-dark border border-amber-800/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                        <option>M-Pesa (Vodacom)</option>
+                        <option>Airtel Money</option>
+                        <option>Mix by Yas (Tigo)</option>
+                        <option>Halopesa (Halotel)</option>
+                    </select>
+                </div>
+
+                <button onclick="submitWithdrawRequest()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm py-3.5 rounded-xl shadow-lg transition">
+                    THIBITISHA KUTOA PESA
+                </button>
+            </div>
+
+            <!-- Step 2: Error/Account Activation Requirement -->
+            <div id="withdrawStep2" class="space-y-4 hidden text-center">
+                <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center text-2xl mx-auto">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <h3 class="text-lg font-black text-white">HUWEZI KUTOA PESA</h3>
+
+                <p class="text-xs text-gray-300 leading-relaxed bg-brand-dark/90 p-4 rounded-2xl border border-amber-900/50">
+                    Huwezi kutoa pesa kwa sasa kwa sababu bado hujathibitisha au kutengeneza akaunti yako rasmi ya <strong>Swahili Digital TZ</strong>.<br><br>
+                    Kujiunga na kuanza kupokea malipo rasmi, unapaswa kujisajili kwa mtaji wa <strong>16,000 TZS inayo lipwa mala moja TU.</strong>.
+                </p>
+
+                <button onclick="triggerRegisterRedirect()" class="w-full bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 text-white font-black text-sm py-3.5 rounded-xl shadow-xl flex items-center justify-center gap-2">
+                    <span>JISAJILI SASA (TZS 16,000)</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <button onclick="closeWithdrawModal()" class="text-xs text-gray-400 underline">Funga</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHAT MODAL -->
+    <div id="chatModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden">
+        <div class="glass-card w-full max-w-md h-[88vh] rounded-3xl flex flex-col border border-amber-600/40 shadow-2xl overflow-hidden">
+            <!-- Header -->
+            <div class="p-4 bg-brand-dark/90 border-b border-amber-900/50 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img id="chatAvatar" src="" class="w-10 h-10 rounded-full object-cover border border-amber-500/50">
+                    <div>
+                        <h4 id="chatName" class="font-extrabold text-white text-sm"></h4>
+                        <p id="chatTopic" class="text-[10px] text-amber-300/80 font-medium"></p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="bg-emerald-950/80 border border-emerald-700/60 text-emerald-400 px-3 py-1 rounded-full text-xs font-black flex items-center gap-1.5">
+                        <i class="fa-solid fa-stopwatch text-xs"></i>
+                        <span id="chatTimer">01:00</span>
+                    </div>
+                    <button onclick="closeChatModal()" class="text-gray-400 hover:text-white">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Box -->
+            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs bg-brand-dark/40">
+                <!-- Chat bubbles -->
+            </div>
+
+            <div id="typingIndicator" class="px-4 py-1 text-[10px] text-amber-400 italic hidden">
+                ... typing response ...
+            </div>
+
+            <!-- Input area -->
+            <div class="p-3 bg-brand-dark/90 border-t border-amber-900/50 flex items-center gap-2">
+                <input id="chatInput" onkeypress="handleKeyPress(event)" type="text" placeholder="Andika ujumbe hapa..." class="flex-1 bg-brand-dark border border-amber-800/50 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+                <button onclick="sendChatMessage()" class="bg-indigo-600 hover:bg-indigo-500 text-white w-10 h-10 rounded-xl flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Registration target URL provided by user
+        const REGISTER_LINK = "https://moxeraagencies.com/register?ref=JOBSCODE";
+
+        // GUEST DATA ARRAY (16 Online Foreign Learners)
+        const GUEST_DATA = [
+            { id: 1, name: "Emma W.", country: "🇬🇧", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "24 min", topic: "Safari & Wildlife", tzs: "37,700", usd: "14.50", initialMsgs: ["Hey! 🇬🇧 Nice to meet you.", "I only know 'Jambo' and 'Asante' 😊", "My big interest is safari & wildlife — how do I start?"] },
+            { id: 2, name: "Alexandro G.", country: "🇮🇹", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "34 min", topic: "Tanzanian Food", tzs: "35,880", usd: "13.80", initialMsgs: ["Ciao! I am visiting Arusha next month.", "Can you teach me how to order food in Swahili?"] },
+            { id: 3, name: "Lucas M.", country: "🇫🇷", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", rating: "4.6", time: "33 min", topic: "Business Swahili", tzs: "33,280", usd: "12.80", initialMsgs: ["Bonjour my friend!", "I want to learn Swahili for business greetings."] },
+            { id: 4, name: "David K.", country: "🇩🇪", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "45 min", topic: "Transport & Directions", tzs: "41,600", usd: "16.00", initialMsgs: ["Hallo! I am traveling around Zanzibar.", "How do I ask for taxi directions?"] },
+            { id: 5, name: "Omar K.", country: "🇦🇪", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "38 min", topic: "Trade & Markets", tzs: "39,000", usd: "15.00", initialMsgs: ["Marhaba! How do I bargain prices in Swahili markets?"] },
+            { id: 6, name: "Maria C.", country: "🇧🇷", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", rating: "5.0", time: "29 min", topic: "Bongo Flava Music", tzs: "35,100", usd: "13.50", initialMsgs: ["Olá! I love Diamond Platnumz songs!", "Teach me lyrics meanings please."] },
+            { id: 7, name: "Ji-Woo N.", country: "🇰🇷", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "25 min", topic: "Daily Greetings", tzs: "40,300", usd: "15.50", initialMsgs: ["Annyeong! Let's practice simple Swahili greetings."] },
+            { id: 8, name: "Hans P.", country: "🇳🇱", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80", rating: "4.6", time: "39 min", topic: "Beach & Zanzibar", tzs: "36,400", usd: "14.00", initialMsgs: ["Hujambo! I want to practice basic conversational Swahili."] },
+            { id: 9, name: "Kenji T.", country: "🇯🇵", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "41 min", topic: "Culture & Proverbs", tzs: "36,400", usd: "14.00", initialMsgs: ["Konnichiwa! Tell me about Swahili sayings."] },
+            { id: 10, name: "Amelie D.", country: "🇨🇦", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "27 min", topic: "Kanga & Fashion", tzs: "33,800", usd: "13.00", initialMsgs: ["Hi there! I am interested in Swahili fabrics and culture."] },
+            { id: 11, name: "Sophie L.", country: "🇸🇪", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "26 min", topic: "Yoga & Mindfulness", tzs: "36,925", usd: "14.20", initialMsgs: ["Hej! Teach me Swahili words for peace and nature."] },
+            { id: 12, name: "Michael B.", country: "🇺🇸", avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "28 min", topic: "Weddings & Celebrations", tzs: "35,620", usd: "13.70", initialMsgs: ["Hey! I'm attending a Swahili wedding next month!"] },
+            { id: 13, name: "Lars J.", country: "🇳🇴", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80", rating: "4.7", time: "36 min", topic: "Lakes & Fishing", tzs: "39,520", usd: "15.20", initialMsgs: ["Hallo! I am visiting Lake Victoria soon."] },
+            { id: 14, name: "Anna S.", country: "🇵🇱", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80", rating: "4.8", time: "31 min", topic: "Farming & Coffee", tzs: "37,440", usd: "14.40", initialMsgs: ["Cześć! I want to learn coffee farming terms in Swahili."] },
+            { id: 15, name: "Chen L.", country: "🇨🇳", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", rating: "4.5", time: "30 min", topic: "Technology & Mobile Money", tzs: "36,140", usd: "13.90", initialMsgs: ["Nǐ hǎo! Teach me how to ask for M-Pesa services."] },
+            { id: 16, name: "Ahmed F.", country: "🇪🇬", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", rating: "4.9", time: "37 min", topic: "Hospitality Work", tzs: "42,900", usd: "16.50", initialMsgs: ["Salam! I am learning Swahili for hotel management."] }
+        ];
+
+        // LIVE PAYOUTS LIST
+        const LIVE_PAYOUTS = [
+            { provider: 'M-PESA', name: 'Shadrich M.', amount: '45,000 TZS' },
+            { provider: 'AIRTEL', name: 'QueenBiz A.', amount: '32,000 TZS' },
+            { provider: 'MIX BY YAS', name: 'Amtin K.', amount: '60,000 TZS' },
+            { provider: 'M-PESA', name: 'Idd S.', amount: '35,000 TZS' },
+            { provider: 'AIRTEL', name: 'Amina K.', amount: '43,000 TZS' },
+            { provider: 'MIX BY YAS', name: 'Kelvin M.', amount: '50,000 TZS' },
+            { provider: 'M-PESA', name: 'Neema J.', amount: '28,000 TZS' },
+            { provider: 'AIRTEL', name: 'Izack P.', amount: '55,000 TZS' },
+            { provider: 'MIX BY YAS', name: 'Baraka A.', amount: '65,000 TZS' }
+        ];
+
+        // Global User Balance State
+        let netProfitTotal = 0;
+        let balanceTotal = 0;
+        let activeGuest = null;
+
+        // Timer interval variable
+        let chatTimerInterval = null;
+        let secondsRemaining = 60;
+        let deferredPrompt = null;
+
+        // Install PWA Prompt Listener
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        function installAppPrompt() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                alert("Ili kuweka (Install) app hii kwenye Desktop au Simu yako, tumia menyu ya kivinjari chako (Chrome/Edge/Safari) na uchague 'Install' au 'Add to Home Screen'.");
+            }
+        }
+
+        // Redirect helper
+        function triggerRegisterRedirect() {
+            window.open(REGISTER_LINK, '_blank') || (window.location.href = REGISTER_LINK);
+        }
+
+        // Live Real-Time Date & Clock Function
+        function startLiveClock() {
+            const days = ["Jumapili", "Jumatatu", "Jumanne", "Jumatano", "Alhamisi", "Ijumaa", "Jumamosi"];
+            const months = ["Januari", "Februari", "Machi", "Aprili", "Mei", "Juni", "Julai", "Agosti", "Septemba", "Oktoba", "Novemba", "Desemba"];
+
+            function updateClock() {
+                const now = new Date();
+                const dayName = days[now.getDay()];
+                const dateNum = now.getDate();
+                const monthName = months[now.getMonth()];
+                const year = now.getFullYear();
+
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+
+                const dateString = `${dayName}, ${dateNum} ${monthName} ${year}`;
+                const timeString = `${hours}:${minutes}:${seconds}`;
+
+                const dateEl = document.getElementById('liveDayDate');
+                const timeEl = document.getElementById('liveTime');
+
+                if (dateEl) dateEl.innerText = dateString;
+                if (timeEl) timeEl.innerText = timeString;
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        // Render Page Data on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            startLiveClock();
+            renderGuests();
+            renderPayouts();
+        });
+
+        // Floating Customer Care Widget
+        function openCustomerCareWidget() {
+            window.open(`https://wa.me/255799223490?text=${encodeURIComponent('Habari Swahili Digital, naomba msaada wa kujisajili.')}`, '_blank');
+        }
+
+        // Render Live Payouts Ticker
+        function renderPayouts() {
+            const container = document.getElementById('payoutsContainer');
+            if (!container) return;
+
+            const doubleList = [...LIVE_PAYOUTS, ...LIVE_PAYOUTS];
+            container.innerHTML = doubleList.map(item => `
+                <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-dark/80 border border-amber-900/30 text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold uppercase bg-amber-900/40 text-amber-300 px-2 py-0.5 rounded border border-amber-700/40">
+                            ${item.provider}
+                        </span>
+                        <span class="font-bold text-gray-200">${item.name}</span>
+                    </div>
+                    <span class="font-black text-emerald-400">+${item.amount}</span>
+                </div>
+            `).join('');
+        }
+
+        // Render Online Guest List
+        function renderGuests() {
+            const container = document.getElementById('guestListContainer');
+            if (!container) return;
+            
+            container.innerHTML = GUEST_DATA.map(g => `
+                <div class="glass-card rounded-2xl p-4 border border-amber-900/40 hover:border-amber-700/60 transition duration-300 shadow-lg relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="relative">
+                                <img src="${g.avatar}" alt="${g.name}" class="w-12 h-12 rounded-full object-cover border-2 border-amber-500/50">
+                                <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-brand-dark pulse-dot"></span>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <h3 class="font-extrabold text-white text-base">${g.name}</h3>
+                                    <span class="text-sm">${g.country}</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs text-amber-300/80 font-medium mt-0.5">
+                                    <span class="flex items-center gap-1 text-emerald-400">
+                                        <i class="fa-solid fa-circle text-[8px]"></i> Online
+                                    </span>
+                                    <span>•</span>
+                                    <span class="text-yellow-400 font-bold"><i class="fa-solid fa-star text-[10px]"></i> ${g.rating}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 my-3 text-xs">
+                        <div class="bg-brand-dark/60 p-2.5 rounded-xl border border-amber-900/30">
+                            <span class="text-[10px] text-gray-400 uppercase font-semibold block mb-0.5">
+                                <i class="fa-regular fa-clock text-amber-400 mr-1"></i>MUDA WA CHAT
+                            </span>
+                            <span class="font-extrabold text-emerald-400">${g.time}</span>
+                        </div>
+                        <div class="bg-brand-dark/60 p-2.5 rounded-xl border border-amber-900/30">
+                            <span class="text-[10px] text-gray-400 uppercase font-semibold block mb-0.5">
+                                <i class="fa-solid fa-book-open text-blue-400 mr-1"></i>TOPIC
+                            </span>
+                            <span class="font-extrabold text-white truncate block">${g.topic}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-gradient-to-r from-amber-950/60 to-brand-dark p-3 rounded-xl border border-amber-800/40 mb-3">
+                        <span class="font-black text-amber-400 text-lg">TZS ${g.tzs}</span>
+                        <span class="text-xs text-gray-400 font-medium">= USD ${g.usd}</span>
+                    </div>
+
+                    <button onclick="openChatModal(${g.id})" class="w-full bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 text-white font-black text-xs py-3 px-4 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 border border-purple-400/30">
+                        <i class="fa-regular fa-comments text-sm"></i>
+                        <span>START CHAT</span>
+                    </button>
+                </div>
+            `).join('');
+
+            const countBadge = document.getElementById('onlineCountBadge');
+            if (countBadge) countBadge.innerText = `50+ Active Now`;
+        }
+
+        // Withdrawal Modal Logic with Steps
+        function openWithdrawModal() {
+            document.getElementById('withdrawStep1').classList.remove('hidden');
+            document.getElementById('withdrawStep2').classList.add('hidden');
+            
+            document.getElementById('modalCurrentBalance').innerText = balanceTotal.toLocaleString();
+
+            const modal = document.getElementById('withdrawModal');
+            const box = document.getElementById('withdrawModalBox');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.remove('scale-95');
+                box.classList.add('scale-100');
+            }, 10);
+        }
+
+        function submitWithdrawRequest() {
+            // Switch to step 2 informing registration required
+            document.getElementById('withdrawStep1').classList.add('hidden');
+            document.getElementById('withdrawStep2').classList.remove('hidden');
+        }
+
+        function closeWithdrawModal() {
+            const modal = document.getElementById('withdrawModal');
+            modal.classList.add('hidden');
+        }
+
+        // Chat Simulation Modal Logic with 1-Minute Live Timer
+        function openChatModal(guestId) {
+            activeGuest = GUEST_DATA.find(g => g.id === guestId);
+            if (!activeGuest) return;
+
+            document.getElementById('chatAvatar').src = activeGuest.avatar;
+            document.getElementById('chatName').innerText = `${activeGuest.name} ${activeGuest.country}`;
+            document.getElementById('chatTopic').innerText = activeGuest.topic;
+
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '';
+
+            // Start 1 minute countdown timer
+            secondsRemaining = 60;
+            updateTimerDisplay();
+
+            clearInterval(chatTimerInterval);
+            chatTimerInterval = setInterval(() => {
+                secondsRemaining--;
+                updateTimerDisplay();
+
+                if (secondsRemaining <= 0) {
+                    clearInterval(chatTimerInterval);
+                    completeChatSession();
+                }
+            }, 1000);
+
+            // Populate initial incoming messages
+            activeGuest.initialMsgs.forEach((msgText, idx) => {
+                setTimeout(() => {
+                    appendMessage(msgText, 'incoming');
+                }, idx * 400);
+            });
+
+            document.getElementById('chatModal').classList.remove('hidden');
+        }
+
+        function updateTimerDisplay() {
+            const timerEl = document.getElementById('chatTimer');
+            if (!timerEl) return;
+            const mins = Math.floor(secondsRemaining / 60);
+            const secs = secondsRemaining % 60;
+            timerEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function completeChatSession() {
+            if (!activeGuest) return;
+
+            // Parse numeric value from TZS string
+            const earnedAmount = parseInt(activeGuest.tzs.replace(/,/g, '')) || 37700;
+
+            netProfitTotal += earnedAmount;
+            balanceTotal += earnedAmount;
+
+            // Update UI Counters
+            document.getElementById('netProfitVal').innerText = netProfitTotal.toLocaleString();
+            document.getElementById('balanceVal').innerText = balanceTotal.toLocaleString();
+
+            appendMessage(`⏰ Muda wa dakika 1 umekamilika! Hongera, umepokea TZS ${activeGuest.tzs}!`, 'incoming');
+
+            setTimeout(() => {
+                closeChatModal();
+                openWithdrawModal();
+            }, 1500);
+        }
+
+        function closeChatModal() {
+            clearInterval(chatTimerInterval);
+            document.getElementById('chatModal').classList.add('hidden');
+            activeGuest = null;
+        }
+
+        function appendMessage(text, type) {
+            const container = document.getElementById('chatMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex ${type === 'outgoing' ? 'justify-end' : 'justify-start'} mb-2`;
+
+            const bubble = document.createElement('div');
+            bubble.className = type === 'outgoing' 
+                ? 'bg-indigo-600 text-white rounded-2xl rounded-tr-none px-3.5 py-2 max-w-[80%] shadow-md'
+                : 'bg-brand-card text-gray-200 border border-amber-900/50 rounded-2xl rounded-tl-none px-3.5 py-2 max-w-[80%] shadow-md';
+            
+            bubble.innerText = text;
+            msgDiv.appendChild(bubble);
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            appendMessage(text, 'outgoing');
+            input.value = '';
+
+            // Simulate typing and response
+            const typingIndicator = document.getElementById('typingIndicator');
+            typingIndicator.classList.remove('hidden');
+
+            setTimeout(() => {
+                typingIndicator.classList.add('hidden');
+                
+                // Generic response
+                const responses = [
+                    "Haha okay okay, I'll write that down! 📝",
+                    "Asante sana! How do I pronounce that correctly?",
+                    "That is very helpful! Can you teach me one more sentence?",
+                    "Karibu! Thanks for teaching me Swahili today! 🌟"
+                ];
+                const randomResp = responses[Math.floor(Math.random() * responses.length)];
+                appendMessage(randomResp, 'incoming');
+
+                // Auto prompt registration after 1 simulated response
+                setTimeout(() => {
+                    openWithdrawModal();
+                }, 2000);
+
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
